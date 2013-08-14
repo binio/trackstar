@@ -137,7 +137,9 @@ class UserController extends Controller
         $model->created_by = '1';
         $model->created_at = date('Y-m-d H:i:s');
         $model->save();
-        $this->redirect(array('group/admin'));
+
+        echo 'ALL OK GOOD LUCK!';
+        //$this->redirect(array('intention/admin'));
         //CVarDumper::dump($_POST['Intention'],10,true);die();
     }
 	/**
