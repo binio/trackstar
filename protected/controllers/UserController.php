@@ -28,7 +28,7 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','my'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -122,12 +122,19 @@ class UserController extends Controller
 	 */
 	public function actionIndex()
 	{
+        $int = new Intention();
+
 		$dataProvider=new CActiveDataProvider('User');
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'dataProvider'=>$dataProvider, 'model'=> $int,
 		));
 	}
 
+    public function actionMy()
+    {
+
+        CVarDumper::dump($_POST['Intention'],10,true);die();
+    }
 	/**
 	 * Manages all models.
 	 */

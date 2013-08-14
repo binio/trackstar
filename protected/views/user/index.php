@@ -12,6 +12,8 @@ $this->menu=array(
 );
 ?>
 
+<?php $this->renderPartial('_addIntention', array('model'=> $model)); ?>
+
 <h1>Users</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
