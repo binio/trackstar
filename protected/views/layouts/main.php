@@ -31,7 +31,7 @@
 
 
     <?php $this->widget('bootstrap.widgets.TbNavbar', array(
-        'brandLabel' => 'Title',
+        'brandLabel' => '',
         'display' => null, // default is static to top
         'items' => array(
             array(

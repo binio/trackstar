@@ -235,7 +235,7 @@ class GroupController extends Controller
             ),
         ));
 
-
+//echo json_encode($dataProvider_dao);Yii::app()->end();
         foreach($reader as $row){
             //CVarDumper::dump($userEmail,10,true);
         }
