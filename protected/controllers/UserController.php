@@ -132,8 +132,13 @@ class UserController extends Controller
 
     public function actionMy()
     {
-
-        CVarDumper::dump($_POST['Intention'],10,true);die();
+        $model = new Intention();
+        $model->attributes = $_POST['Intention'];
+        $model->created_by = '1';
+        $model->created_at = date('Y-m-d H:i:s');
+        $model->save();
+        $this->redirect(array('group/admin'));
+        //CVarDumper::dump($_POST['Intention'],10,true);die();
     }
 	/**
 	 * Manages all models.

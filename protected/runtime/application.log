@@ -5496,3 +5496,68 @@ Stack trace:
 REQUEST_URI=/trackstar/index.php/user/my
 in /var/www/trackstar/protected/controllers/UserController.php (136)
 in /var/www/trackstar/index.php (14)
+2013/08/14 16:56:12 [error] [php] Attempt to assign property of non-object (/var/www/trackstar/protected/controllers/UserController.php:136)
+Stack trace:
+#0 /var/www/yii-1.1.12/framework/web/filters/CFilterChain.php(134): UserController->runAction()
+#1 /var/www/yii-1.1.12/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /var/www/yii-1.1.12/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /var/www/yii-1.1.12/framework/web/filters/CInlineFilter.php(59): UserController->filterAccessControl()
+#4 /var/www/yii-1.1.12/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /var/www/yii-1.1.12/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii-1.1.12/framework/web/CController.php(266): UserController->runActionWithFilters()
+#7 /var/www/yii-1.1.12/framework/web/CWebApplication.php(283): UserController->run()
+#8 /var/www/yii-1.1.12/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /var/www/yii-1.1.12/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/trackstar/index.php(14): CWebApplication->run()
+REQUEST_URI=/trackstar/index.php/user/my
+in /var/www/trackstar/protected/controllers/UserController.php (136)
+in /var/www/trackstar/index.php (14)
+2013/08/14 16:56:16 [error] [php] Attempt to assign property of non-object (/var/www/trackstar/protected/controllers/UserController.php:136)
+Stack trace:
+#0 /var/www/yii-1.1.12/framework/web/filters/CFilterChain.php(134): UserController->runAction()
+#1 /var/www/yii-1.1.12/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /var/www/yii-1.1.12/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /var/www/yii-1.1.12/framework/web/filters/CInlineFilter.php(59): UserController->filterAccessControl()
+#4 /var/www/yii-1.1.12/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /var/www/yii-1.1.12/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii-1.1.12/framework/web/CController.php(266): UserController->runActionWithFilters()
+#7 /var/www/yii-1.1.12/framework/web/CWebApplication.php(283): UserController->run()
+#8 /var/www/yii-1.1.12/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /var/www/yii-1.1.12/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/trackstar/index.php(14): CWebApplication->run()
+REQUEST_URI=/trackstar/index.php/user/my
+in /var/www/trackstar/protected/controllers/UserController.php (136)
+in /var/www/trackstar/index.php (14)
+2013/08/14 16:57:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "group".' in /var/www/yii-1.1.12/framework/web/CController.php:484
+Stack trace:
+#0 /var/www/yii-1.1.12/framework/web/CController.php(271): CController->missingAction('group')
+#1 /var/www/yii-1.1.12/framework/web/CWebApplication.php(283): CController->run('group')
+#2 /var/www/yii-1.1.12/framework/web/CWebApplication.php(142): CWebApplication->runController('user/group/admi...')
+#3 /var/www/yii-1.1.12/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /var/www/trackstar/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/trackstar/index.php/user/group/admin
+HTTP_REFERER=http://localhost/trackstar/index.php/user
+---
+2013/08/14 16:59:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "group".' in /var/www/yii-1.1.12/framework/web/CController.php:484
+Stack trace:
+#0 /var/www/yii-1.1.12/framework/web/CController.php(271): CController->missingAction('group')
+#1 /var/www/yii-1.1.12/framework/web/CWebApplication.php(283): CController->run('group')
+#2 /var/www/yii-1.1.12/framework/web/CWebApplication.php(142): CWebApplication->runController('user/group/admi...')
+#3 /var/www/yii-1.1.12/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /var/www/trackstar/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/trackstar/index.php/user/group/admin
+HTTP_REFERER=http://localhost/trackstar/index.php/user
+---
+2013/08/14 16:59:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "group".' in /var/www/yii-1.1.12/framework/web/CController.php:484
+Stack trace:
+#0 /var/www/yii-1.1.12/framework/web/CController.php(271): CController->missingAction('group')
+#1 /var/www/yii-1.1.12/framework/web/CWebApplication.php(283): CController->run('group')
+#2 /var/www/yii-1.1.12/framework/web/CWebApplication.php(142): CWebApplication->runController('user/group/admi...')
+#3 /var/www/yii-1.1.12/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /var/www/trackstar/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/trackstar/index.php/user/group/admin
+HTTP_REFERER=http://localhost/trackstar/index.php/user
+---
