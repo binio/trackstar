@@ -255,7 +255,7 @@ class GroupController extends Controller
             array(
                 'criteria' => array(
                     'condition' => '2=2',
-                    'with'=> array( 'users' => array('joinType' => 'LEFT JOIN')),
+                    'with'=> array( 'users' => array('joinType' => 'LEFT JOIN'),'author'),
 
 
                 ),

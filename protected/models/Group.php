@@ -11,6 +11,7 @@
  */
 class Group extends CActiveRecord
 {
+    //public $users = array();
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -21,6 +22,10 @@ class Group extends CActiveRecord
 		return parent::model($className);
 	}
 
+//    public function getUsers()
+//    {
+//      return $this->users[0];
+//    }
 	/**
 	 * @return string the associated database table name
 	 */
@@ -54,6 +59,7 @@ class Group extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
             'users'=>array(self::MANY_MANY,'User','groups_users(group_id,user_id)'),
+            'author'=>array(self::BELONGS_TO,'User','user_id')
 		);
 	}
 

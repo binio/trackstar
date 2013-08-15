@@ -100,6 +100,10 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             'name'=>'users.email',
             'value' => '($data->users == null ? CHtml::encode("NA") : CHtml::encode($data->users[0]->email,3,true))',
         ),
+        array(
+            'header'=>'Author',
+            'value' => 'CHtml::encode($data->author->email)',
+        ),
 		array(
 			'class'=>'CButtonColumn',
 		),
