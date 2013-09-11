@@ -79,12 +79,21 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         array('name' =>'username', 'header' => 'User'),
         array('name'=>'create_time','header'=>'Group created',),
         'name','description',
-        'groupID'
+        'groupID',
     ),
 
 )); ?>
 
-<?php $this->widget('bootstrap.widgets.TbGridView', array(
+<?php
+
+    function sayHello($data){
+        $emails = '';
+        foreach($data as $user){
+            $emails.= ', '.$user->email;
+        }
+        return $emails;
+    }
+    $this->widget('bootstrap.widgets.TbGridView', array(
 	'id'=>'group-grid',
 	'dataProvider'=>$dataProvider,
     //'attributes' => array('users'),
@@ -98,11 +107,15 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         array(
             'header'=>'User email',
             'name'=>'users.email',
-            'value' => '($data->users == null ? CHtml::encode("NA") : CHtml::encode($data->users[0]->email,3,true))',
+            'value' => '($data->users == null ? CHtml::encode("NA") : CHtml::encode($data->author->email,3,true))',
         ),
         array(
             'header'=>'Author',
             'value' => 'CHtml::encode($data->author->email)',
+        ),
+        array(
+            'header'=>'DUMP USERS',
+            'value' => 'sayHello($data->users)',
         ),
 		array(
 			'class'=>'CButtonColumn',

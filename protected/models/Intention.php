@@ -58,7 +58,8 @@ class Intention extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'id0' => array(self::BELONGS_TO, 'User', 'id'),
+			'author' => array(self::BELONGS_TO, 'User', 'id'),
+            'users' => array(self::MANY_MANY,'User','user_intention(user_id,intention_id)'),
 		);
 	}
 

@@ -74,6 +74,7 @@ class User extends CActiveRecord
 			'issues1' => array(self::HAS_MANY, 'Issue', 'requester_id'),
 			'projectUserAssignments' => array(self::HAS_MANY, 'ProjectUserAssignment', 'user_id'),
             'groups'=>array(self::MANY_MANY,'Group','groups_users(user_id,group_id)'),
+            'intentions'=>array(self::MANY_MANY,'Intention','user_intention(user_id,intention_id)')
 		);
 	}
 

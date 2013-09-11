@@ -224,7 +224,6 @@ class GroupController extends Controller
 
         $dataProvider_dao=new CArrayDataProvider($dataDAO->queryAll(), array(
             'id'=>'group',
-
             'sort'=>array(
                 'attributes'=>array(
                     'id', 'username', 'email','create_time','groupID'

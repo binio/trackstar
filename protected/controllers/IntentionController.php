@@ -138,8 +138,34 @@ class IntentionController extends Controller
 		if(isset($_GET['Intention']))
 			$model->attributes=$_GET['Intention'];
 
+
+        $sort = new CSort();
+//        $sort->attributes = array(
+//            'name' => array('asc' => 'name.DESC', 'asc' => 'name'),
+//            'created',
+//            'description',
+//            'users',
+//        );
+//        $sort->defaultOrder = array('name' => true);
+
+
+
+        $dataProvider=new CActiveDataProvider('Intention',
+            array(
+                'criteria' => array(
+                    'condition' => '2=2',
+                    'with'=> array( 'users' => array('joinType' => 'LEFT JOIN'),'author'),
+
+
+                ),
+                'sort' => $sort,
+                'pagination' => array(
+                    'pageSize' => 5,
+                ),
+            )
+        );
 		$this->render('admin',array(
-			'model'=>$model,
+			'model'=>$model, 'dataProvider' => $dataProvider
 		));
 	}
 
