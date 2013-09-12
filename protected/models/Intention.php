@@ -98,4 +98,23 @@ class Intention extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    public function getIntentions()
+    {
+        $sort = new CSort();
+       return  new CActiveDataProvider('Intention',
+            array(
+                'criteria' => array(
+                    'condition' => '2=2',
+                    'with'=> array( 'users' => array('joinType' => 'LEFT JOIN'),'author'),
+
+
+                ),
+                'sort' => $sort,
+                'pagination' => array(
+                    'pageSize' => 5,
+                ),
+            )
+        );
+    }
 }
