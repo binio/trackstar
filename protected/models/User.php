@@ -130,6 +130,7 @@ class User extends CActiveRecord
 
     public function encrypt($val)
     {
-        return md5($val);
+       return md5($val);
+        //return $val;
     }
 }

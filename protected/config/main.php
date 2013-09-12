@@ -26,7 +26,7 @@ return array(
 
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-            //'username'=>'admin',
+            'username'=>'admin',
 			'password'=>'qwert',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
@@ -47,10 +47,10 @@ return array(
             'class' => 'bootstrap.components.TbApi',
         ),
 		// uncomment the following to enable URLs in path-format
-//		'authManager'=>array(
-//            'class'=>'CDbAuthManager',
-//            'connectionID'=>'db'
-//        ),
+		'authManager'=>array(
+            'class'=>'CDbAuthManager',
+            'connectionID'=>'db'
+        ),
 
 		'urlManager'=>array(
 			'urlFormat'=>'path',

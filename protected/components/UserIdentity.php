@@ -55,6 +55,7 @@ class UserIdentity extends CUserIdentity
         }
 
             $this->_id = $user->id;
+            $this->setState('lastLoginTime', 'abc');
 
 
         return !$this->errorCode;
