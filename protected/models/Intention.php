@@ -136,13 +136,28 @@ class Intention extends CActiveRecord
      */
     public function getPI($userId)
     {
-        return $records = Intention::model()->with(
-            array('users'=>array(
-                'select'=>false,
-                'joinType'=>'INNER JOIN',
-                'condition'=>'users.id='.$userId,
-            ),
 
-            ))->findAll();
+        return new CActiveDataProvider('Intention',
+            array(
+                'criteria' => array(
+                    'condition' => "created_by = $userId",
+                    'with'=> array(
+                        'users' => array(
+                            'joinType' => 'INNER JOIN',
+                            'select'=>false,
+                            'condition'=>'users.id='.$userId)),
+
+                )
+            )
+        );
+
+//        return $records = Intention::model()->with(
+//            array('users'=>array(
+//                'select'=>false,
+//                'joinType'=>'INNER JOIN',
+//                'condition'=>'users.id='.$userId,
+//            ),
+//
+//            ))->findAll();
     }
 }

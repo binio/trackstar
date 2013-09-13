@@ -152,11 +152,13 @@ class IntentionController extends Controller
             )
         );
 
-        CVarDumper::dump($model->getPI(Yii::app()->user->id),10,true);
+        $getPI = $model->getPI(Yii::app()->user->id);
+        //CVarDumper::dump($getPI,10,true);
 		$this->render('admin',array(
 			'model'=>$model,
             'dataProvider' => $dataProvider,
-            'participatedIntentions'=> $participatedIntentions
+            'participatedIntentions'=> $participatedIntentions,
+            'getPI'=>$getPI,
 		));
 	}
 
