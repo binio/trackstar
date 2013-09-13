@@ -136,18 +136,24 @@ class Intention extends CActiveRecord
      */
     public function getPI($userId)
     {
-
+        $sort = new CSort();
         return new CActiveDataProvider('Intention',
             array(
                 'criteria' => array(
-                    'condition' => "created_by = $userId",
+                    //'condition' => "users.id = $userId",
                     'with'=> array(
                         'users' => array(
-                            'joinType' => 'INNER JOIN',
+                            'joinType' => 'RIGHT JOIN',
                             'select'=>false,
-                            'condition'=>'users.id='.$userId)),
+                            'condition'=>'users.id='.$userId
+                        )
+                    ),
 
-                )
+                ),
+                'sort' => $sort,
+                'pagination' => array(
+                    'pageSize' => 100,
+                ),
             )
         );
 
