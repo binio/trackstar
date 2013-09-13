@@ -130,4 +130,19 @@ class Intention extends CActiveRecord
 
 
     }
+
+    /*
+     * relative AR without related models
+     */
+    public function getPI($userId)
+    {
+        return $records = Intention::model()->with(
+            array('users'=>array(
+                'select'=>false,
+                'joinType'=>'INNER JOIN',
+                'condition'=>'users.id='.$userId,
+            ),
+
+            ))->findAll();
+    }
 }
