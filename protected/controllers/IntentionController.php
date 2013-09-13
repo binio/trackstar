@@ -138,9 +138,25 @@ class IntentionController extends Controller
 		if(isset($_GET['Intention']))
 			$model->attributes=$_GET['Intention'];
 
-        $dataProvider = $model->getIntentions();
+        $dataProvider = $model->getAuthorIntentions(Yii::app()->user->id);
+
+        $participatedIntentions = new CArrayDataProvider(
+            $model->getParticipatedIntentions(Yii::app()->user->id,
+            array(
+                'id'=>'participated',
+                'pagination' => array(
+                    'pageSize' => 3,
+                )
+
+            )
+            )
+        );
+
+        //CVarDumper::dump($model->getParticipatedIntentions(Yii::app()->user->id),10,true);
 		$this->render('admin',array(
-			'model'=>$model, 'dataProvider' => $dataProvider
+			'model'=>$model,
+            'dataProvider' => $dataProvider,
+            'participatedIntentions'=> $participatedIntentions
 		));
 	}
 

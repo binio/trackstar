@@ -99,13 +99,13 @@ class Intention extends CActiveRecord
 		));
 	}
 
-    public function getIntentions()
+    public function getAuthorIntentions($userId)
     {
-        $sort = new CSort();
+       $sort = new CSort();
        return  new CActiveDataProvider('Intention',
             array(
                 'criteria' => array(
-                    'condition' => '2=2',
+                    'condition' => "created_by = $userId",
                     'with'=> array( 'users' => array('joinType' => 'LEFT JOIN'),'author'),
 
 
@@ -116,5 +116,18 @@ class Intention extends CActiveRecord
                 ),
             )
         );
+    }
+
+    public function getParticipatedIntentions($userId)
+    {
+        $connection = Yii::app()->db;
+        $sql = "SELECT * FROM Intention i JOIN user_intention ui ON(i.id = ui.intention_id)  WHERE ui.user_id=:user_id";
+        $command = $connection->createCommand($sql);
+        $command->bindParam(":user_id",$userId,PDO::PARAM_STR);
+
+        return $command->queryAll();
+
+
+
     }
 }
