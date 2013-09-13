@@ -140,19 +140,19 @@ class Intention extends CActiveRecord
         return new CActiveDataProvider('Intention',
             array(
                 'criteria' => array(
-                    //'condition' => "users.id = $userId",
                     'with'=> array(
                         'users' => array(
-                            'joinType' => 'RIGHT JOIN',
+                            'joinType' => 'INNER JOIN',
                             'select'=>false,
-                            'condition'=>'users.id='.$userId
+                            'condition'=>'user_id='.$userId.' AND 9=9'
                         )
                     ),
+                    'together'=>true,
 
                 ),
                 'sort' => $sort,
                 'pagination' => array(
-                    'pageSize' => 100,
+                    'pageSize' => 3,
                 ),
             )
         );
