@@ -3,7 +3,11 @@
 define('YII_DEBUG',true);
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/protected/yii-1.1.12/framework/yii.php';
-$config=dirname(__FILE__).'/protected/config/main.php';
+
+$config=dirname(__FILE__).'/protected/config/main_local.php';
+
+if(getenv('ENV')=='dev'){$config=dirname(__FILE__).'/protected/config/main.php';}
+if(getenv('ENV')=='live'){$config=dirname(__FILE__).'/protected/config/main_prod.php';}
 
 //$yii=dirname(__FILE__).'/../framework/yii.php';
 //$config=dirname(__FILE__).'/protected/config/main.php';

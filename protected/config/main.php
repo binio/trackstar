@@ -5,6 +5,15 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+$services_json = json_decode(getenv("VCAP_SERVICES"),true);
+$mysql_config = $services_json["mysql-5.1"][0]["credentials"];
+
+$username = $mysql_config["username"];
+$password = $mysql_config["password"];
+$hostname = $mysql_config["hostname"];
+$port = $mysql_config["port"];//ok
+$db = $mysql_config["name"];
+
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web Application',
@@ -69,10 +78,10 @@ return array(
 		// uncomment the following to use a MySQL database
 
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=thomastest2',
+			'connectionString' => 'mysql:host='.$hostname.';dbname='.$db,
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => 'thomas1551',
+			'username' => $username,
+			'password' => $password,
 			'charset' => 'utf8',
             'enableProfiling' => true,
             'enableParamLogging' => true,
@@ -96,9 +105,9 @@ return array(
 				    		),
 				// uncomment the following to show log messages on web pages
 				
-				array(
-					'class'=>'CWebLogRoute',
-				),
+//				array(
+//					'class'=>'CWebLogRoute',
+//				),
 
 
 				
