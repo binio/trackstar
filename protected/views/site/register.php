@@ -1,4 +1,4 @@
-<div class="span5">
+<div class="form span5">
     <h3>Register</h3>
     <?php $form=$this->beginWidget('CActiveForm'); ?>
 
