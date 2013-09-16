@@ -9,12 +9,12 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Login</h1>
+<div class="row">
+    <div class="form span5">
+    <h3>Login</h3>
 
-<p>Please fill out the following form with your login credentials:</p>
-
-<div class="form">
-<?php $form=$this->beginWidget('CActiveForm', array(
+        <p>Please fill out the following form with your login credentials:</p>
+        <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
 	'enableClientValidation'=>true,
 	'clientOptions'=>array(
@@ -50,4 +50,9 @@ $this->breadcrumbs=array(
 	</div>
 
 <?php $this->endWidget(); ?>
+
+
 </div><!-- form -->
+    <?php $this->renderPartial('register',array('model'=>new RegisterForm()));?>
+</div>
+
