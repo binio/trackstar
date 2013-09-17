@@ -10,11 +10,12 @@ $this->breadcrumbs=array(
 ?>
 
 <div class="row">
-    <div class="form span5">
+
+    <div class="form span5" style="background: #999999; -webkit-border-radius: 30px; padding: 15px">
     <h3>Login</h3>
 
         <p>Please fill out the following form with your login credentials:</p>
-        <?php $form=$this->beginWidget('CActiveForm', array(
+        <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'login-form',
 	'enableClientValidation'=>true,
 	'clientOptions'=>array(

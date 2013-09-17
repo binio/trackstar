@@ -1,5 +1,6 @@
-<div class="form span5">
+<div class="form span5" style="background: #cccccc; -webkit-border-radius: 30px; padding: 15px">
     <h3>Register</h3>
+    <p>Please fill out the following form with your login credentials: Fields with <span class="required">*</span> are required.</p>
     <?php $form=$this->beginWidget('CActiveForm', array(
         'id'=>'RegisterForm',
         'enableClientValidation'=>true,
@@ -7,7 +8,7 @@
             'validateOnSubmit'=>true,
         ),
     )); ?>
-
+    
     <?php echo $form->errorSummary($model); ?>
 
     <div class="row">
