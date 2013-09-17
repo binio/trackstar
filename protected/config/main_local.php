@@ -87,7 +87,7 @@ return array(
             'routes'=>array(
                 array(
                     'class'=>'CFileLogRoute',
-                    'levels'=>'error, warning',
+                    'levels'=>'info, trace, error, warning',
                 ),
                 array(
                     'class'=>'CFileLogRoute',
