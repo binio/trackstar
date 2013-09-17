@@ -1,6 +1,12 @@
 <div class="form span5">
     <h3>Register</h3>
-    <?php $form=$this->beginWidget('CActiveForm'); ?>
+    <?php $form=$this->beginWidget('CActiveForm', array(
+        'id'=>'RegisterForm',
+        'enableClientValidation'=>true,
+        'clientOptions'=>array(
+            'validateOnSubmit'=>true,
+        ),
+    )); ?>
 
     <?php echo $form->errorSummary($model); ?>
 

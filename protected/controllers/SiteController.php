@@ -104,14 +104,34 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
-		$model=new LoginForm;
+        $model = new LoginForm;
+        $modelRF = new RegisterForm();
 
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{       
-			echo CActiveForm::validate($model);
+        CVarDumper::dump($_POST,10,true);
+        // if it is ajax validation request
+        if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+        {
+            $model=new LoginForm;
+            echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+
+        if(isset($_POST['ajax']) && $_POST['ajax']==='RegisterForm')
+        {
+            Yii::trace('here 120','000');
+            $modelRF = new RegisterForm;
+            echo CActiveForm::validate($modelRF);
+            Yii::app()->end();
+        }
+
+        if(isset($_POST['RegisterForm']))
+        {   $modelRF=new RegisterForm;
+            Yii::trace('here 128','123');
+            $modelRF->attributes=$_POST['RegisterForm'];
+            // validate user input and redirect to the previous page if valid
+            if($model->validate() && $modelRF->register())
+                $this->redirect(Yii::app()->user->returnUrl);
+        }
 
 		// collect user input data
 		if(isset($_POST['LoginForm']))
@@ -122,7 +142,7 @@ class SiteController extends Controller
 				$this->redirect(Yii::app()->user->returnUrl);
 		}
 		// display the login form
-		$this->render('login',array('model'=>$model));
+		$this->render('login',array('model'=>$model,'registerForm'=>$modelRF));
 	}
 
 	/**

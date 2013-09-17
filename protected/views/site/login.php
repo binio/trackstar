@@ -53,6 +53,6 @@ $this->breadcrumbs=array(
 
 
 </div><!-- form -->
-    <?php $this->renderPartial('register',array('model'=>new RegisterForm()));?>
+    <?php $this->renderPartial('register',array('model'=>$registerForm));?>
 </div>
 

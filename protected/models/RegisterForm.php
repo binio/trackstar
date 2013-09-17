@@ -8,15 +8,15 @@ class RegisterForm extends CFormModel
 
     public function register()
     {
-
+        return true;
     }
 
     public function rules()
     {
         return array(
             array('username, password', 'required'),
-            array('password_repeat', 'required', 'on'=>'register'),
-            array('password', 'compare', 'compareAttribute'=>'password_repeat', 'on'=>'register'),
+            array('password_repeat', 'required'),
+            array('password', 'compare', 'compareAttribute'=>'password_repeat'),
         );
     }
 }
