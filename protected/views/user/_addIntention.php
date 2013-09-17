@@ -7,15 +7,16 @@
     'enableAjaxValidation'=>false,
     'htmlOptions'=>array(
         'onsubmit'=>"return false;",/* Disable normal form submit */
-        'onkeypress'=>" if(event.keyCode == 13){ send(); } " /* Do ajax call when user presses enter key */
+        //'onkeypress'=>" if(event.keyCode == 13){ send(); } " /* Do ajax call when user presses enter key */
     ),
-    'clientOptions'=>array(
-        'validateOnSubmit'=>true,
-        'validateOnChange'=>false,
-        'validateOnType'=>false,
-    ),
-    'enableClientValidation'=>true,
-    'action' => 'user/my'
+//    'clientOptions'=>array(
+//        'validateOnSubmit'=>true,
+//        'afterValidate'=>'js:send()',
+//        'validateOnChange'=>false,
+//        'validateOnType'=>false,
+//    ),
+//    'enableClientValidation'=>true,
+//    'action' => ''
     )); ?>
 
 <?php echo $form->textFieldControlGroup($model, 'name',
