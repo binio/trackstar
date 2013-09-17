@@ -129,7 +129,7 @@ class SiteController extends Controller
             Yii::trace('here 128','123');
             $modelRF->attributes=$_POST['RegisterForm'];
             // validate user input and redirect to the previous page if valid
-            if($model->validate() && $modelRF->register())
+            if($modelRF->validate() && $modelRF->register())
                 $this->redirect(Yii::app()->user->returnUrl);
         }
 
