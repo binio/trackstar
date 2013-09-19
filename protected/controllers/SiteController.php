@@ -107,7 +107,7 @@ class SiteController extends Controller
         $model = new LoginForm;
         $modelRF = new RegisterForm();
 
-        CVarDumper::dump($_POST,10,true);
+        //CVarDumper::dump($_POST,10,true);
         // if it is ajax validation request
         if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
         {
