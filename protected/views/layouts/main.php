@@ -23,6 +23,7 @@
 
 
     <?php $this->widget('bootstrap.widgets.TbHeroUnit', array(
+        'htmlOptions'=>array('style'=>"background-image:url('http://www.australia.com/contentimages/about-australias-landscapes-coastal-australian-beaches.jpg')"),
         'heading' => CHtml::encode(Yii::app()->name),
         'content' => '<p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>' . TbHtml::button('Learn more', array('color' =>TbHtml::BUTTON_COLOR_PRIMARY, 'size' => TbHtml::BUTTON_SIZE_LARGE)),
     )); ?>
