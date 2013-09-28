@@ -14,9 +14,8 @@ class RegisterForm extends CFormModel
         $model->password = $this->password;
         $model->password_repeat = $this->password_repeat;
         $model->email = $this->email;
-        return $model->save();
 
-        //return true;
+        return $model->save();
     }
 
     public function rules()

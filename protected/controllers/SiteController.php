@@ -130,7 +130,8 @@ class SiteController extends Controller
             $modelRF->attributes=$_POST['RegisterForm'];
             // validate user input and redirect to the previous page if valid
             if($modelRF->validate() && $modelRF->register())
-                $this->redirect(Yii::app()->user->returnUrl);
+                echo '123';
+                //$this->redirect(Yii::app()->user->returnUrl);
         }
 
 		// collect user input data
@@ -144,6 +145,29 @@ class SiteController extends Controller
 		// display the login form
 		$this->render('login',array('model'=>$model,'registerForm'=>$modelRF));
 	}
+
+    public function actionRegister()
+    {
+        $modelRF = new RegisterForm();
+
+        if(isset($_POST['ajax']) && $_POST['ajax']==='RegisterForm')
+        {
+            Yii::trace('here 120','000');
+            $modelRF = new RegisterForm;
+            echo CActiveForm::validate($modelRF);
+            Yii::app()->end();
+        }
+
+        if(isset($_POST['RegisterForm']))
+        {   $modelRF=new RegisterForm;
+            Yii::trace('here 163','163');
+            $modelRF->attributes=$_POST['RegisterForm'];
+            // validate user input and redirect to the previous page if valid
+            if($modelRF->validate() && $modelRF->register())
+                echo 'YOUR ACCOUNT HAS BEEN CREATED';
+            //$this->redirect(Yii::app()->user->returnUrl);
+        }
+    }
 
 	/**
 	 * Logs out the current user and redirect to homepage.
