@@ -18,6 +18,12 @@
     </div>
 
     <div class="row">
+        <?php echo $form->label($model,'email'); ?>
+        <?php echo $form->textField($model,'email') ?>
+        <?php echo $form->error($model,'email'); ?>
+    </div>
+
+    <div class="row">
         <?php echo $form->label($model,'password'); ?>
         <?php echo $form->passwordField($model,'password') ?>
         <?php echo $form->error($model,'password'); ?>
@@ -28,6 +34,7 @@
         <?php echo $form->passwordField($model,'password_repeat') ?>
         <?php echo $form->error($model,'password_repeat'); ?>
     </div>
+
 
     <div class="row submit">
         <?php echo CHtml::submitButton('Register'); ?>
