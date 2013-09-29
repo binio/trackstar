@@ -116,25 +116,7 @@ class SiteController extends Controller
 			Yii::app()->end();
 		}
 
-        if(isset($_POST['ajax']) && $_POST['ajax']==='RegisterForm')
-        {
-            Yii::trace('here 120','000');
-            $modelRF = new RegisterForm;
-            echo CActiveForm::validate($modelRF);
-            Yii::app()->end();
-        }
-
-        if(isset($_POST['RegisterForm']))
-        {   $modelRF=new RegisterForm;
-            Yii::trace('here 128','123');
-            $modelRF->attributes=$_POST['RegisterForm'];
-            // validate user input and redirect to the previous page if valid
-            if($modelRF->validate() && $modelRF->register())
-                echo '123';
-                //$this->redirect(Yii::app()->user->returnUrl);
-        }
-
-		// collect user input data
+       	// collect user input data
 		if(isset($_POST['LoginForm']))
 		{
 			$model->attributes=$_POST['LoginForm'];
@@ -142,7 +124,7 @@ class SiteController extends Controller
 			if($model->validate() && $model->login())
 				$this->redirect(Yii::app()->user->returnUrl);
 		}
-		// display the login form
+		// display the login and register form
 		$this->render('login',array('model'=>$model,'registerForm'=>$modelRF));
 	}
 
