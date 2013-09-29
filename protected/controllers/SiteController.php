@@ -152,20 +152,21 @@ class SiteController extends Controller
 
         if(isset($_POST['ajax']) && $_POST['ajax']==='RegisterForm')
         {
-            Yii::trace('here 120','000');
+
             $modelRF = new RegisterForm;
             echo CActiveForm::validate($modelRF);
             Yii::app()->end();
         }
 
         if(isset($_POST['RegisterForm']))
-        {   $modelRF=new RegisterForm;
-            Yii::trace('here 163','163');
+        {
+            $modelRF=new RegisterForm;
             $modelRF->attributes=$_POST['RegisterForm'];
+
             // validate user input and redirect to the previous page if valid
             if($modelRF->validate() && $modelRF->register())
+                //@TODO should send confirmation email as well
                 echo 'YOUR ACCOUNT HAS BEEN CREATED';
-            //$this->redirect(Yii::app()->user->returnUrl);
         }
     }
 
