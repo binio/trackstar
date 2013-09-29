@@ -1,7 +1,7 @@
 <?php Yii::app()->clientScript->registerCoreScript('jquery.ui'); ?>
 
 <div class="form span5" style="background: #cccccc; -webkit-border-radius: 30px; padding: 15px">
-    <h3>Register 123</h3>
+    <h3>Register</h3>
     <div id="contentRegister">
     <p>Please fill out the following form with your login credentials: Fields with <span class="required">*</span> are required.</p>
     </div>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="row">
-        <?php echo $form->label($model,'password repeat'); ?>
+        <?php echo $form->label($model,'password_repeat'); ?>
         <?php echo $form->passwordField($model,'password_repeat') ?>
         <?php echo $form->error($model,'password_repeat'); ?>
     </div>
@@ -65,8 +65,10 @@
             url: '<?php echo Yii::app()->createAbsoluteUrl("site/register"); ?>',
             data:data,
             success:function(data){
-                $('#RegisterForm').effect('fade');
-                $('#contentRegister').append(data);
+                if(data=='YOUR ACCOUNT HAS BEEN CREATED'){
+                    $('#RegisterForm').effect('fade');
+                    $('#contentRegister').append(data);
+                }
             },
             error: function(data) { // if error occured
                 alert("Error occured.please try again");
