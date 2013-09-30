@@ -18,6 +18,14 @@ class RegisterForm extends CFormModel
         return $model->save();
     }
 
+    public function attributeLabels() {
+        return array(
+            'username'=>Yii::t('app','model.register.username'),
+            'email'=>Yii::t('app','model.register.email'),
+            'password'=>Yii::t('app','model.register.password'),
+            'password_repeat'=>Yii::t('app','model.register.password_repeat'),
+        );
+    }
     public function rules()
     {
         return array(
