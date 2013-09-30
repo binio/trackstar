@@ -1,4 +1,4 @@
-<?php Yii::app()->clientScript->registerCoreScript('jquery.ui'); ?>
+<?php Yii::app()->clientScript->registerCoreScript('jquery.ui');?>
 
 <div class="form span5" style="background: #cccccc; -webkit-border-radius: 30px; padding: 15px">
     <h3>Register</h3>
