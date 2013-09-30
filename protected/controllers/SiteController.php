@@ -169,8 +169,30 @@ class SiteController extends Controller
 
     public function actionProfile()
     {
-        $this->render('profile',array('model'=>'123'));
+        $settings = $this->getSettings();
+        $messages = $this->getMessages();
+        $dashboard = $this->getDashboard();
+
+        $this->render('profile',array(
+            'settings'=>$settings,
+            'messages'=>$messages,
+            'dashboard'=>$dashboard
+        ));
     }
+
+    private function getSettings()
+    {
+        return array();
+    }
+    private function getMessages()
+    {
+        return array();
+    }
+    private function getDashboard()
+    {
+        return array();
+    }
+
 
     function init()
     {
