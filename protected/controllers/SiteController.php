@@ -130,6 +130,12 @@ class SiteController extends Controller
 
     public function actionRegister()
     {
+        /*
+         * For translation look at
+         * init()
+         * protected/messages/en
+         * config params
+         */
         $modelRF = new RegisterForm();
 
         if(isset($_POST['ajax']) && $_POST['ajax']==='RegisterForm')
@@ -164,5 +170,11 @@ class SiteController extends Controller
     public function actionProfile()
     {
         $this->render('profile',array('model'=>'123'));
+    }
+
+    function init()
+    {
+        parent::init();
+        Yii::app()->language = Yii::app()->params['languages']['pl'];
     }
 }
