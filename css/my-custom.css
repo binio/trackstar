@@ -1,2 +1,19 @@
 #settings {font-size: 30px; background: #CCCC66;}
 #tab_content {height: 300px;}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+#footer {
+    width: auto;
+    max-width: 100%;
+    padding: 0px;
+}
+#container{
+    margin: 0px;
+}
+
+.cc1 {
+    border:1px;
+    border-color: #000020;
+    color: #b81900;
+}
