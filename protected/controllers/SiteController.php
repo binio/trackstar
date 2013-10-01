@@ -41,7 +41,7 @@ class SiteController extends Controller
     public function filters()
     {
         return array(
-            'accessControl', // perform access control for CRUD operations
+            //'accessControl', // perform access control for CRUD operations
             //'postOnly + delete', // we only allow deletion via POST request
         );
     }
@@ -204,6 +204,7 @@ class SiteController extends Controller
         ));
     }
 
+
     private function getSettings()
     {
         return array();
@@ -223,4 +224,6 @@ class SiteController extends Controller
         parent::init();
         Yii::app()->language = 'en';//Yii::app()->params['languages']['en_us'];
     }
+
+
 }
