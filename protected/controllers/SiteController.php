@@ -21,6 +21,30 @@ class SiteController extends Controller
 		);
 	}
 
+    public function accessRules()
+    {
+        return array(
+            array('allow',  // allow all users to perform 'index' and 'view' actions
+                'actions'=>array('index','contact','login','register','logout','page'),
+                'users'=>array('*'),
+            ),
+            array('allow', // allow authenticated user to perform 'profile'
+                'actions'=>array('profile'),
+                'users'=>array('@'),
+            ),
+            array('deny',  // deny all users
+                'users'=>array('*'),
+            ),
+        );
+    }
+
+    public function filters()
+    {
+        return array(
+            'accessControl', // perform access control for CRUD operations
+            //'postOnly + delete', // we only allow deletion via POST request
+        );
+    }
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
@@ -130,6 +154,12 @@ class SiteController extends Controller
 
     public function actionRegister()
     {
+        /*
+         * For translation look at
+         * init()
+         * protected/messages/en
+         * config params
+         */
         $modelRF = new RegisterForm();
 
         if(isset($_POST['ajax']) && $_POST['ajax']==='RegisterForm')
@@ -160,4 +190,37 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+    public function actionProfile()
+    {
+        $settings = $this->getSettings();
+        $messages = $this->getMessages();
+        $dashboard = $this->getDashboard();
+
+        $this->render('profile',array(
+            'settings'=>$settings,
+            'messages'=>$messages,
+            'dashboard'=>$dashboard
+        ));
+    }
+
+    private function getSettings()
+    {
+        return array();
+    }
+    private function getMessages()
+    {
+        return array();
+    }
+    private function getDashboard()
+    {
+        return array();
+    }
+
+
+    function init()
+    {
+        parent::init();
+        Yii::app()->language = Yii::app()->params['languages']['en_us'];
+    }
 }

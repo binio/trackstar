@@ -114,6 +114,7 @@ return array(
     'params'=>array(
         // this is used in contact page
         'adminEmail'=>'webmaster@example.com',
+        'languages'=>array('en_us'=>'English', 'pl'=>'pl',),
     ),
     //'behaviors'=>array('mrt'=>array('class'=>'ext.behaviors.MrtBehavior')),
 );

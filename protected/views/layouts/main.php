@@ -41,7 +41,7 @@
                     array('label'=>'Home', 'url'=>array('/site/index')),
                     array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
                     array('label'=>'Contact', 'url'=>array('/site/contact')),
-                    array('label'=>'Project', 'url'=>array('/project'),'visible'=>!Yii::app()->user->isGuest ),
+                    array('label'=>'Profile', 'url'=>array('/site/profile'),'visible'=>!Yii::app()->user->isGuest ),
                     array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                     array('label'=>'Group', 'url'=>array('/group'),'visible'=>!Yii::app()->user->isGuest ),
                     array('label'=>'Intention', 'url'=>array('/intention'),'visible'=>!Yii::app()->user->isGuest ),
@@ -63,9 +63,11 @@
 	<div class="clear"></div>
 
 	<div id="footer">
+        <div id="container">
 		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
+        </div>
 	</div><!-- footer -->
 
 
