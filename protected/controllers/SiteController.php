@@ -21,6 +21,30 @@ class SiteController extends Controller
 		);
 	}
 
+    public function accessRules()
+    {
+        return array(
+            array('allow',  // allow all users to perform 'index' and 'view' actions
+                'actions'=>array('index','contact','login','register','logout','page'),
+                'users'=>array('*'),
+            ),
+            array('allow', // allow authenticated user to perform 'profile'
+                'actions'=>array('profile'),
+                'users'=>array('@'),
+            ),
+            array('deny',  // deny all users
+                'users'=>array('*'),
+            ),
+        );
+    }
+
+    public function filters()
+    {
+        return array(
+            'accessControl', // perform access control for CRUD operations
+            //'postOnly + delete', // we only allow deletion via POST request
+        );
+    }
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
