@@ -56,7 +56,7 @@
 
     function send()
     {
-        console.log('hello');
+
         var data=$("#RegisterForm").serialize();
 
 
