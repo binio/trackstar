@@ -161,10 +161,10 @@ class SiteController extends Controller
          * config params
          */
         $modelRF = new RegisterForm();
-
+        //@TODO need to fix ajax validation
         if(isset($_POST['ajax']) && $_POST['ajax']==='RegisterForm')
         {
-
+            CVarDumper::dump($_POST['ajax']);
             $modelRF = new RegisterForm;
             echo CActiveForm::validate($modelRF);
             Yii::app()->end();
