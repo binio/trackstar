@@ -43,7 +43,7 @@ $('.search-form form').submit(function(){
 //            'value' => 'count($data->users)',
 //        ),
 		array(
-			'class'=>'CButtonColumn',
+			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
 	),
 )); ?>
