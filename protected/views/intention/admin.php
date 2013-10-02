@@ -8,7 +8,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Intention', 'url'=>array('index')),
 	array('label'=>'Create Intention', 'url'=>array('create')),
 );
 
@@ -26,58 +25,48 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Intentions</h1>
+<h4>My Intentions</h4>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
 
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
 	'id'=>'intention-grid',
 	'dataProvider'=>$dataProvider,
-	'filter'=>$model,
+	//'filter'=>$model,
 	'columns'=>array(
-		'id',
+		//'id',
 		'name',
 		'description',
 		'created_at',
-		'created_by',
-        array(
-            'header'=>'NUM USERS',
-            'value' => 'count($data->users)',
-        ),
+		//'created_by',
+//        array(
+//            'header'=>'NUM USERS',
+//            'value' => 'count($data->users)',
+//        ),
 		array(
 			'class'=>'CButtonColumn',
 		),
 	),
 )); ?>
-<h4>Participated</h4>
+
 <?php
-$this->widget('bootstrap.widgets.TbGridView', array(
-    'id'=>'participated-grid',
-    'dataProvider'=> $participatedIntentions,
-    'columns' => array('id','name'),
-));
+//$this->widget('bootstrap.widgets.TbGridView', array(
+//    'id'=>'participated-grid',
+//    'dataProvider'=> $participatedIntentions,
+//    'columns' => array('id','name'),
+//));
 ?>
 
+<h4>I joined intentions</h4>
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
     'id'=>'participated-grid2',
     'dataProvider'=> $getPI,
-    'ajaxUpdate'=>false,
+    'ajaxUpdate'=>true,
     'columns'=>array(
-        'name','id',
+        'name','description',
     ),
 )); ?>
 
 <?php
 //CVarDumper::dump($getPI,10,true);
-CVarDumper::dump(Yii::app()->user->id,10,true);
+//CVarDumper::dump(Yii::app()->user->id,10,true);
 ?>
