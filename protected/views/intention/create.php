@@ -8,7 +8,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Intention', 'url'=>array('index')),
 	array('label'=>'Manage Intention', 'url'=>array('admin')),
 );
 ?>
