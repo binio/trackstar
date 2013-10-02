@@ -67,6 +67,7 @@ class IntentionController extends Controller
 		if(isset($_POST['Intention']))
 		{
 			$model->attributes=$_POST['Intention'];
+            $model->created_by = Yii::app()->user->id;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
