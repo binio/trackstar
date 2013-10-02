@@ -140,6 +140,13 @@ class SiteController extends Controller
 			Yii::app()->end();
 		}
 
+        if(isset($_POST['ajax']) && $_POST['ajax']==='RegisterForm')
+        {
+            $modelRF->attributes=$_POST['RegisterForm'];
+            echo CActiveForm::validate($modelRF);
+            Yii::app()->end();
+        }
+
        	// collect user input data
 		if(isset($_POST['LoginForm']))
 		{
@@ -164,7 +171,7 @@ class SiteController extends Controller
         //@TODO need to fix ajax validation
         if(isset($_POST['ajax']) && $_POST['ajax']==='RegisterForm')
         {
-            CVarDumper::dump($_POST['ajax']);
+
             $modelRF = new RegisterForm;
             echo CActiveForm::validate($modelRF);
             Yii::app()->end();
