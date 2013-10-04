@@ -1,5 +1,5 @@
 <?php
-
+//first issue chenge
 define('YII_DEBUG',true);
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/protected/yii-1.1.12/framework/yii.php';
