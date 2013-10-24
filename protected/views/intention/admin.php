@@ -62,7 +62,24 @@ $('.search-form form').submit(function(){
     'dataProvider'=> $getPI,
     'ajaxUpdate'=>true,
     'columns'=>array(
-        'name','description',
+        'name',
+        'description',
+        array
+        (
+            'class'=>'bootstrap.widgets.TbButtonColumn',
+            'template'=>'{rate}',
+            'buttons'=>array(
+                'rate'=>array(
+                    'options'=>array('class'=>'icon-leaf', 'title'=>'Up', 'rel'=>'tooltip', 'onclick'=>'alert("abc");'),
+                    'label'=>'',
+                    'imageUrl'=>'',
+                    'click'=>'alert("hello thomas")',
+                    'url'=>function ($data, $row) {
+                        //return '#';
+                    },
+                ),
+            ),
+        ),
     ),
 )); ?>
 
