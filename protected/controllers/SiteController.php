@@ -229,7 +229,7 @@ class SiteController extends Controller
     function init()
     {
         parent::init();
-        Yii::app()->language = 'en';//Yii::app()->params['languages']['en_us'];
+        Yii::app()->language = 'pl';//Yii::app()->params['languages']['en_us'];
     }
 
 

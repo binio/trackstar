@@ -5,4 +5,8 @@ return array(
     'model.register.email' =>'Adres Email',
     'model.register.password' =>'Hasło',
     'model.register.password_repeat' =>'Powtorz Hasło',
+    'model.register.register' =>'Rejestracja',
+    'model.user.username' => 'Login',
+    'model.user.password' => 'Hasło',
+    'model.user.login'=>'Zaloguj',
 );

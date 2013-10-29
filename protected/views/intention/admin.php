@@ -73,9 +73,9 @@ $('.search-form form').submit(function(){
                     'options'=>array('class'=>'icon-leaf', 'title'=>'Up', 'rel'=>'tooltip', 'onclick'=>'alert("abc");'),
                     'label'=>'',
                     'imageUrl'=>'',
-                    'click'=>'alert("hello thomas")',
+                    //'click'=>'alert("hello thomas")',
                     'url'=>function ($data, $row) {
-                        //return '#';
+                        return 'http://google.com';
                     },
                 ),
             ),
