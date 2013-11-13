@@ -64,6 +64,11 @@ $('.search-form form').submit(function(){
     'columns'=>array(
         'name',
         'description',
+        array(
+            'header'=>'TEST',
+            'type'=>'raw',
+            'value'=>'CHtml::link("link hello", "#", array("class" => "hello", "onClick"=>CHtml::ajax(array("url"=>"ajax/do",))))'
+        ),
         array
         (
             'class'=>'bootstrap.widgets.TbButtonColumn',
