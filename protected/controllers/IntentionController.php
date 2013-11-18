@@ -29,7 +29,7 @@ class IntentionController extends Controller
 		return array(
 
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','view','create','update','admin'),
+				'actions'=>array('index','view','create','update','admin','hello'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -125,6 +125,18 @@ class IntentionController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
+
+    public function actionHello()
+    {
+        $intention_id = $_POST['name'];
+        $user_id = 1;
+
+        $counterObj = new Counter();
+        $counterInt = $counterObj->getCounter($user_id, $intention_id);
+        $counterObj->updateCounter($user_id, $intention_id, $counterInt);
+
+        echo $counterInt;
+    }
 
 	/**
 	 * Manages all models.

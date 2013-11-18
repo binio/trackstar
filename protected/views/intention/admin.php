@@ -1,3 +1,7 @@
+<script>
+    $( "#line_73" ).load( "/trackstar/index.php/intention/hello","name=73" );
+
+</script>
 <?php
 /* @var $this IntentionController */
 /* @var $model Intention */
@@ -64,29 +68,26 @@ $('.search-form form').submit(function(){
     'columns'=>array(
         'name',
         'description',
+
         array(
-            'header'=>'TEST',
+            'name'=>'id',
+            'header'=>'UP',
             'type'=>'raw',
-            'value'=>'CHtml::link("link hello", "#", array("class" => "hello", "onClick"=>CHtml::ajax(array("url"=>"ajax/do",))))'
+            'value'=>'CHtml::link("link hello", "", array("class" => "hello", "id"=>"link_$data->id","onClick"=>CHtml::ajax(array("type"=>"post","data"=>"name=$data->id", "url"=>"/trackstar/index.php/intention/hello","update"=>"#link_$data->id",))))'
+            //'value' => 'CHtml::tag("div",array("id"=>"line_$data->id"))',
         ),
-        array
-        (
-            'class'=>'bootstrap.widgets.TbButtonColumn',
-            'template'=>'{rate}',
-            'buttons'=>array(
-                'rate'=>array(
-                    'options'=>array('class'=>'icon-leaf', 'title'=>'Up', 'rel'=>'tooltip', 'onclick'=>'alert("abc");'),
-                    'label'=>'',
-                    'imageUrl'=>'',
-                    //'click'=>'alert("hello thomas")',
-                    'url'=>function ($data, $row) {
-                        return 'http://google.com';
-                    },
-                ),
-            ),
+        array(
+            'name'=>'id',
+            'header'=>'Count',
+            'type'=>'raw',
+            //'value'=>'CHtml::link("link hello", "", array("class" => "hello", "onClick"=>CHtml::ajax(array("type"=>"post","data"=>"name=$data->id", "url"=>"/trackstar/index.php/intention/hello","update"=>"#line_$data->id",))))'
+            'value' => 'CHtml::tag("div",array("id"=>"line_$data->id", "value"=>"abc"),"10")',
         ),
     ),
-)); ?>
+));
+echo CHtml::textArea('ctrylist', '');
+?>
+
 
 <?php
 //CVarDumper::dump($getPI,10,true);
