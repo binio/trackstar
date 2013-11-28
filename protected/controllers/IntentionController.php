@@ -149,6 +149,7 @@ class IntentionController extends Controller
 			$model->attributes=$_GET['Intention'];
 
         $dataProvider = $model->getAuthorIntentions(Yii::app()->user->id);
+        $recentIntentions = $model->getRecentIntention('2013-08-15 00:00:00');
 
         $participatedIntentions = new CArrayDataProvider(
             $model->getParticipatedIntentions(Yii::app()->user->id,
@@ -168,6 +169,7 @@ class IntentionController extends Controller
 			'model'=>$model,
             'dataProvider' => $dataProvider,
             'participatedIntentions'=> $participatedIntentions,
+            'recentIntentions'=> $recentIntentions,
             'getPI'=>$getPI,
 		));
 	}

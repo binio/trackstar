@@ -28,6 +28,26 @@ $('.search-form form').submit(function(){
 });
 ");
 ?>
+<h4>Recent Intentions</h4>
+<?php $this->widget('bootstrap.widgets.TbGridView', array(
+    'id'=>'intention-recent-grid',
+    'dataProvider'=>$recentIntentions,
+    //'filter'=>$model,
+    'columns'=>array(
+        //'id',
+        'name',
+        'description',
+        'created_at',
+        //'created_by',
+//        array(
+//            'header'=>'NUM USERS',
+//            'value' => 'count($data->users)',
+//        ),
+        array(
+            'class'=>'bootstrap.widgets.TbButtonColumn',
+        ),
+    ),
+)); ?>
 
 <h4>My Intentions</h4>
 

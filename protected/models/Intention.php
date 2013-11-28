@@ -126,9 +126,24 @@ class Intention extends CActiveRecord
         $command->bindParam(":user_id",$userId,PDO::PARAM_STR);
 
         return $command->queryAll();
+    }
 
+    public function getRecentIntention($recent)
+    {
+        $sort = new CSort();
+        return new CActiveDataProvider('Intention',
+            array(
+                'criteria' => array(
+                    'condition'=> 'created_at > '."'$recent'",
+                    'order'=>'created_at DESC',
+                    ),
+                'sort' => $sort,
 
-
+                'pagination' => array(
+                    'pageSize' => 10,
+                ),
+            )
+        );
     }
 
     /*
