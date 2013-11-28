@@ -5,4 +5,5 @@ return array(
     'model.register.email' =>'Email',
     'model.register.password' =>'Password',
     'model.register.password_repeat' =>'Password repeat',
+    'model.intention.created_at'=>'Created At',
 );
