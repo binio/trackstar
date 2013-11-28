@@ -199,4 +199,10 @@ class IntentionController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+    function init()
+    {
+        parent::init();
+        Yii::app()->language = 'pl';//Yii::app()->params['languages']['en_us'];
+    }
 }

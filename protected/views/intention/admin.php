@@ -37,7 +37,13 @@ $('.search-form form').submit(function(){
         //'id',
         'name',
         'description',
-        'created_at',
+        array(
+        'name' =>'created_at',
+        ),
+        array(
+            'name'=>'id',
+            'header'=>'join',
+        ),
         //'created_by',
 //        array(
 //            'header'=>'NUM USERS',
