@@ -31,10 +31,10 @@ class ProjectController extends Controller
                 'actions'=>array('index','view', 'adduser', 'create', 'update'),
                 'users'=>array('@'),
             ),
-//            array('allow', // allow authenticated user to perform 'create' and 'update' actions
-//                'actions'=>array('create','update'),
-//                'users'=>array('@'),
-//            ),
+            array('allow', // allow authenticated user to perform 'create' and 'update' actions
+                'actions'=>array('ts'),
+                'users'=>array('*'),
+            ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions'=>array('admin','delete'),
                 'users'=>array('admin'),
@@ -194,6 +194,13 @@ class ProjectController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+    public function actionTs(){
+
+        $this->layout = 'ts';
+        $this->render('ts',array());
+    }
+
 
     public function actionAdduser($pid)
     {
