@@ -174,6 +174,8 @@ class Intention extends CActiveRecord
             )
         );
 
+
+
 //        return $records = Intention::model()->with(
 //            array('users'=>array(
 //                'select'=>false,
@@ -182,5 +184,13 @@ class Intention extends CActiveRecord
 //            ),
 //
 //            ))->findAll();
+    }
+
+    public function beforeSave() {
+        if ($this->isNewRecord){
+            $this->created_at = new CDbExpression('NOW()');
+        }
+
+        return parent::beforeSave();
     }
 }
