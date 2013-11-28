@@ -9,4 +9,5 @@ return array(
     'model.user.username' => 'Login',
     'model.user.password' => 'Hasło',
     'model.user.login'=>'Zaloguj',
+    'model.intention.created_at'=>'Dodany dnia',
 );

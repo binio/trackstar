@@ -72,7 +72,7 @@ class Intention extends CActiveRecord
 			'id' => 'ID',
 			'name' => 'Name',
 			'description' => 'Description',
-			'created_at' => 'Created At',
+			'created_at' => Yii::t('app','model.intention.created_at'),
 			'created_by' => 'Created By',
 		);
 	}
@@ -131,12 +131,14 @@ class Intention extends CActiveRecord
     public function getRecentIntention($recent)
     {
         $sort = new CSort();
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'created_at>:created_at AND created_by !=:user_id';
+        $criteria->params = array(':created_at'=>$recent, ':user_id'=>Yii::app()->user->id);
+        $criteria->order = 'created_at DESC';
+
         return new CActiveDataProvider('Intention',
             array(
-                'criteria' => array(
-                    'condition'=> 'created_at > '."'$recent'",
-                    'order'=>'created_at DESC',
-                    ),
+                'criteria'=>$criteria,
                 'sort' => $sort,
 
                 'pagination' => array(
