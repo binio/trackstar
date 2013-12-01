@@ -70,8 +70,8 @@ class Intention extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'description' => 'Description',
+			'name' => Yii::t('app','model.intention.name'),
+			'description' => Yii::t('app','model.intention.description'),
 			'created_at' => Yii::t('app','model.intention.created_at'),
 			'created_by' => 'Created By',
 		);

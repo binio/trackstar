@@ -12,7 +12,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Intention', 'url'=>array('create')),
+	array('label'=>Yii::t('app','model.intention.add'), 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -28,7 +28,7 @@ $('.search-form form').submit(function(){
 });
 ");
 ?>
-<h4>Recent Intentions</h4>
+<h4><?php echo Yii::t('app','model.intention.recent') ?></h4>
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
     'id'=>'intention-recent-grid',
     'dataProvider'=>$recentIntentions,
@@ -55,7 +55,7 @@ $('.search-form form').submit(function(){
     ),
 )); ?>
 
-<h4>My Intentions</h4>
+<h4><?php echo Yii::t('app','model.intention.my') ?></h4>
 
 
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
@@ -86,7 +86,7 @@ $('.search-form form').submit(function(){
 //));
 ?>
 
-<h4>I joined intentions</h4>
+<h4><?php echo Yii::t('app','model.intention.ipray') ?></h4>
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
     'id'=>'participated-grid2',
     'dataProvider'=> $getPI,

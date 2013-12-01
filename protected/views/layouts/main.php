@@ -38,14 +38,14 @@
             array(
                 'class' => 'bootstrap.widgets.TbNav',
                 'items'=>array(
-                    array('label'=>'Home', 'url'=>array('/site/index')),
-                    array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-                    array('label'=>'Contact', 'url'=>array('/site/contact')),
-                    array('label'=>'Profile', 'url'=>array('/site/profile'),'visible'=>!Yii::app()->user->isGuest ),
-                    array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                    array('label'=>'Group', 'url'=>array('/group/admin'),'visible'=>!Yii::app()->user->isGuest),
-                    array('label'=>'Intention', 'url'=>array('/intention/admin'),'visible'=>!Yii::app()->user->isGuest ),
-                    array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                    array('label'=>Yii::t('app','model.topmenu.home'), 'url'=>array('/site/index')),
+                    array('label'=>Yii::t('app','model.topmenu.about'), 'url'=>array('/site/page', 'view'=>'about')),
+                    array('label'=>Yii::t('app','model.topmenu.contact'), 'url'=>array('/site/contact')),
+                    array('label'=>Yii::t('app','model.topmenu.profil'), 'url'=>array('/site/profile'),'visible'=>!Yii::app()->user->isGuest ),
+                    array('label'=>Yii::t('app','model.topmenu.login'), 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                    array('label'=>Yii::t('app','model.topmenu.group'), 'url'=>array('/group/admin'),'visible'=>!Yii::app()->user->isGuest),
+                    array('label'=>Yii::t('app','model.topmenu.intention'), 'url'=>array('/intention/admin'),'visible'=>!Yii::app()->user->isGuest ),
+                    array('label'=>Yii::t('app','model.topmenu.logout').'('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
                 ),
             ),
         ),
