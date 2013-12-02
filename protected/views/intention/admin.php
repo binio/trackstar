@@ -34,24 +34,28 @@ $('.search-form form').submit(function(){
     'dataProvider'=>$recentIntentions,
     //'filter'=>$model,
     'columns'=>array(
-        //'id',
+        array(
+            'name'=>'name',
+            'value'=>'CHtml::link($data->name,Yii::app()->createUrl("intention/view",array("id"=>$data->id)))',
+            'type'=>'raw',
+        ),
         'name',
         'description',
         array(
         'name' =>'created_at',
         ),
-        array(
-            'name'=>'id',
-            'header'=>'join',
-        ),
+//        array(
+//            'name'=>'id',
+//            'header'=>'join',
+//        ),
         //'created_by',
 //        array(
 //            'header'=>'NUM USERS',
 //            'value' => 'count($data->users)',
 //        ),
-        array(
-            'class'=>'bootstrap.widgets.TbButtonColumn',
-        ),
+//        array(
+//            'class'=>'bootstrap.widgets.TbButtonColumn',
+//        ),
     ),
 )); ?>
 

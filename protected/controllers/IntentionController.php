@@ -129,13 +129,27 @@ class IntentionController extends Controller
     public function actionHello()
     {
         $intention_id = $_POST['name'];
-        $user_id = 1;
+        $user_id = Yii::app()->user->id;
 
-        $counterObj = new Counter();
-        $counterInt = $counterObj->getCounter($user_id, $intention_id);
-        $counterObj->updateCounter($user_id, $intention_id, $counterInt);
+        $counter = Counter::model()->find('user_id=:userId AND intention_id=:intentionId',array(':userId'=>$user_id,':intentionId'=>$intention_id));
 
-        echo $counterInt;
+
+        if($counter == null){
+            $counter = new Counter();
+            $counter->setAttribute('activity_count',1);
+            $counter->setAttribute('user_id',$user_id);
+            $counter->setAttribute('intention_id',$intention_id);
+        }else{
+            $count = $counter->getAttribute('activity_count');
+            $counter->setAttribute('activity_count',$count +1);
+        }
+
+        $counter->save();
+//        $counterObj = new Counter();
+//        $counterInt = $counterObj->getCounter($user_id, $intention_id);
+//        $counterObj->updateCounter($user_id, $intention_id, $counterInt);
+
+        echo $counter->activity_count;
     }
 
 	/**
