@@ -29,7 +29,7 @@ class IntentionController extends Controller
 		return array(
 
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','view','create','update','admin','hello'),
+				'actions'=>array('index','view','create','update','admin','countChange'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -126,13 +126,12 @@ class IntentionController extends Controller
 		));
 	}
 
-    public function actionHello()
+    public function actionCountChange()
     {
         $intention_id = $_POST['name'];
         $user_id = Yii::app()->user->id;
 
         $counter = Counter::model()->find('user_id=:userId AND intention_id=:intentionId',array(':userId'=>$user_id,':intentionId'=>$intention_id));
-
 
         if($counter == null){
             $counter = new Counter();
@@ -145,10 +144,6 @@ class IntentionController extends Controller
         }
 
         $counter->save();
-//        $counterObj = new Counter();
-//        $counterInt = $counterObj->getCounter($user_id, $intention_id);
-//        $counterObj->updateCounter($user_id, $intention_id, $counterInt);
-
         echo $counter->activity_count;
     }
 

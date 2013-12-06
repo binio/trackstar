@@ -27,7 +27,29 @@ $('.search-form form').submit(function(){
 	return false;
 });
 ");
+
 ?>
+
+
+<?php $this->widget('bootstrap.widgets.TbModal', array(
+    'id' => 'myModal',
+    'header' => 'Modal Heading',
+    'content' => '<p>One fine body...</p>',
+    'remote' => 'http://www.wp.pl',
+    //'options' => '',
+    'footer' => array(
+        TbHtml::button('Save Changes', array('data-dismiss' => 'modal', 'color' => TbHtml::BUTTON_COLOR_PRIMARY)),
+        TbHtml::button('Close', array('data-dismiss' => 'modal')),
+    ),
+)); ?>
+
+<?php echo TbHtml::button('Click me to open modal', array(
+    'style' => TbHtml::BUTTON_COLOR_PRIMARY,
+    'size' => TbHtml::BUTTON_SIZE_LARGE,
+    'data-toggle' => 'modal',
+    'data-target' => '#myModal',
+)); ?>
+
 <h4><?php echo Yii::t('app','model.intention.recent') ?></h4>
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
     'id'=>'intention-recent-grid',
@@ -36,7 +58,7 @@ $('.search-form form').submit(function(){
     'columns'=>array(
         array(
             'name'=>'name',
-            'value'=>'CHtml::link($data->name,Yii::app()->createUrl("intention/view",array("id"=>$data->id)))',
+            'value'=>'TbHtml::link($data->name,"#",array("onClick"=>"showInt()"))',
             'type'=>'raw',
         ),
         'name',
@@ -123,3 +145,15 @@ echo CHtml::textArea('ctrylist', '');
 //CVarDumper::dump($getPI,10,true);
 //CVarDumper::dump(Yii::app()->user->id,10,true);
 ?>
+<script>
+    $(document).ready(function(){
+        jQuery('#myModal').modal({'backdrop':true,'keyboard':true,'show':false});
+    });
+        console.log('hello');
+
+    function showInt(){
+        jQuery('#myModal').modal({'backdrop':true,'keyboard':true,'show':true});
+    }
+
+
+</script>
