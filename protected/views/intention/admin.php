@@ -38,17 +38,11 @@ $('.search-form form').submit(function(){
     'remote' => 'http://www.wp.pl',
     //'options' => '',
     'footer' => array(
-        TbHtml::button('Save Changes', array('data-dismiss' => 'modal', 'color' => TbHtml::BUTTON_COLOR_PRIMARY)),
         TbHtml::button('Close', array('data-dismiss' => 'modal')),
     ),
 )); ?>
 
-<?php echo TbHtml::button('Click me to open modal', array(
-    'style' => TbHtml::BUTTON_COLOR_PRIMARY,
-    'size' => TbHtml::BUTTON_SIZE_LARGE,
-    'data-toggle' => 'modal',
-    'data-target' => '#myModal',
-)); ?>
+
 
 <h4><?php echo Yii::t('app','model.intention.recent') ?></h4>
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
@@ -58,7 +52,7 @@ $('.search-form form').submit(function(){
     'columns'=>array(
         array(
             'name'=>'name',
-            'value'=>'TbHtml::link($data->name,"#",array("onClick"=>"showInt()"))',
+            'value'=>'TbHtml::link($data->name,"#",array("onClick"=>"showInt($data->id)"))',
             'type'=>'raw',
         ),
         'name',
@@ -151,7 +145,16 @@ echo CHtml::textArea('ctrylist', '');
     });
         console.log('hello');
 
-    function showInt(){
+    function showInt(id){
+        $.ajax({
+            url:"<?php echo $this->createUrl('data',array('id'=>'')) ?>"+id,
+            dataType:'json',
+            cache:'false',
+            success:function(data){
+                $("#myModal h3").html(data.name);
+                $("#myModal .modal-body p").html(data.description);
+               }
+        });
         jQuery('#myModal').modal({'backdrop':true,'keyboard':true,'show':true});
     }
 
