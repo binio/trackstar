@@ -29,7 +29,7 @@ class IntentionController extends Controller
 		return array(
 
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','view','create','update','admin','countChange'),
+				'actions'=>array('index','view','create','update','admin','countChange','data'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -183,6 +183,18 @@ class IntentionController extends Controller
 		));
 	}
 
+    public function actionData($id)
+    {
+        $criteria = new CDbCriteria();
+        //$criteria->select(array('name','description'));
+        $criteria->condition = 'id=:intentionID';
+        $criteria->params = array(':intentionID'=>$id);
+        $criteria->select = array('name','description');
+        $intention = Intention::model()->find($criteria);
+
+        echo CJSON::encode($intention);
+    }
+
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
@@ -208,6 +220,8 @@ class IntentionController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+
 
     function init()
     {
