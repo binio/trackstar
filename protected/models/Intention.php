@@ -176,6 +176,7 @@ class Intention extends CActiveRecord
 
 
 
+
 //        return $records = Intention::model()->with(
 //            array('users'=>array(
 //                'select'=>false,
@@ -184,6 +185,11 @@ class Intention extends CActiveRecord
 //            ),
 //
 //            ))->findAll();
+    }
+
+    public function getBriefDescription()
+    {
+        return substr($this->description,0,40).'...';
     }
 
     public function beforeSave() {

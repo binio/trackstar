@@ -56,7 +56,7 @@ $('.search-form form').submit(function(){
             'type'=>'raw',
         ),
         'name',
-        'description',
+        'briefDescription',
         array(
         'name' =>'created_at',
         ),
@@ -85,7 +85,7 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		//'id',
 		'name',
-		'description',
+		'briefDescription',
 		'created_at',
 		//'created_by',
 //        array(
@@ -113,7 +113,7 @@ $('.search-form form').submit(function(){
     'ajaxUpdate'=>true,
     'columns'=>array(
         'name',
-        'description',
+        'briefDescription',
 
         array(
             'name'=>'id',
