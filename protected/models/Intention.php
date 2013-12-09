@@ -123,7 +123,7 @@ class Intention extends CActiveRecord
         $connection = Yii::app()->db;
         $sql = "SELECT * FROM Intention i JOIN user_intention ui ON(i.id = ui.intention_id)  WHERE ui.user_id=:user_id";
         $command = $connection->createCommand($sql);
-        $command->bindParam(":user_id",$userId,PDO::PARAM_STR);
+        $command->bindParam(":user_id",$userId,PDO::PARAM_INT);
 
         return $command->queryAll();
     }

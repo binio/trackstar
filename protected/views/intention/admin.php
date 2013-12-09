@@ -38,10 +38,10 @@ $('.search-form form').submit(function(){
     'remote' => 'http://www.wp.pl',
     //'options' => '',
     'footer' => array(
-        TbHtml::button('Close', array('data-dismiss' => 'modal')),
+        TbHtml::button('Pomodle sie',array('color' => TbHtml::BUTTON_COLOR_SUCCESS)),
+        TbHtml::button('Zamknij', array('data-dismiss' => 'modal')),
     ),
 )); ?>
-
 
 
 <h4><?php echo Yii::t('app','model.intention.recent') ?></h4>

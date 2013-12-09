@@ -20,5 +20,5 @@ Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
 should you have any questions.</p>
 
 <?php
-$this->widget('ext.Yiitube', array('v' => 'fYa0y4ETFVo'));
+$this->widget('ext.Yiitube', array('v' => 'fYa0y4ETFVo','size'=>'small'));
 ?>
