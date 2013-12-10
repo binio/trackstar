@@ -38,7 +38,7 @@ $('.search-form form').submit(function(){
     'remote' => 'http://www.wp.pl',
     //'options' => '',
     'footer' => array(
-        TbHtml::button('Pomodle sie',array('color' => TbHtml::BUTTON_COLOR_SUCCESS)),
+        TbHtml::button('Pomodle sie',array('color' => TbHtml::BUTTON_COLOR_SUCCESS, 'type'=>TbHtml::BUTTON_TYPE_AJAXBUTTON,  'id'=>'pray')),
         TbHtml::button('Zamknij', array('data-dismiss' => 'modal')),
     ),
 )); ?>
@@ -119,7 +119,7 @@ $('.search-form form').submit(function(){
             'name'=>'id',
             'header'=>'UP',
             'type'=>'raw',
-            'value'=>'CHtml::link("link hello", "", array("class" => "hello", "id"=>"link_$data->id","onClick"=>CHtml::ajax(array("type"=>"post","data"=>"name=$data->id", "url"=>"/trackstar/index.php/intention/countchange","update"=>"#link_$data->id",))))'
+            'value'=>'CHtml::link("link hello", "", array("class" => "hello", "id"=>"link_$data->id","onClick"=>CHtml::ajax(array("type"=>"post","data"=>"name=$data->id", "url"=>"http://mariajesus.net/index.php/intention/countchange","update"=>"#link_$data->id",))))'
             //'value' => 'CHtml::tag("div",array("id"=>"line_$data->id"))',
         ),
         array(
@@ -153,9 +153,21 @@ echo CHtml::textArea('ctrylist', '');
             success:function(data){
                 $("#myModal h3").html(data.name);
                 $("#myModal .modal-body p").html(data.description);
+                $("#pray").click(function(){pray(data.id)});
                }
         });
         jQuery('#myModal').modal({'backdrop':true,'keyboard':true,'show':true});
+    }
+
+    function pray(id){
+        $.ajax({
+            url:"<?php echo $this->createUrl('pray',array('id'=>'')) ?>"+id,
+            dataType:'json',
+            cache:'false',
+            success:function(data){
+                $("#pray").html('OK');
+            }
+        });
     }
 
 

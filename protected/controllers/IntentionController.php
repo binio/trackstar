@@ -29,7 +29,7 @@ class IntentionController extends Controller
 		return array(
 
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','view','create','update','admin','countChange','data'),
+				'actions'=>array('index','view','create','update','admin','countChange','data','pray'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -189,10 +189,40 @@ class IntentionController extends Controller
         //$criteria->select(array('name','description'));
         $criteria->condition = 'id=:intentionID';
         $criteria->params = array(':intentionID'=>$id);
-        $criteria->select = array('name','description');
+        $criteria->select = array('name','description','id');
         $intention = Intention::model()->find($criteria);
 
         echo CJSON::encode($intention);
+    }
+
+    public function actionPray($id)
+    {
+        $intention_id = $id;
+        $user_id = Yii::app()->user->id;
+
+        $counter = Counter::model()->find('user_id=:userId AND intention_id=:intentionId',array(':userId'=>$user_id,':intentionId'=>$intention_id));
+
+        if($counter == null){
+            $counter = new Counter();
+            $counter->setAttribute('activity_count',1);
+            $counter->setAttribute('user_id',$user_id);
+            $counter->setAttribute('intention_id',$intention_id);
+
+            $sql="INSERT INTO user_intention (user_id, intention_id) VALUES(:uid,:iid)";
+            $connection=Yii::app()->db;
+            $cmd = $connection->createCommand($sql);
+            $cmd->bindParam(":uid",$user_id,PDO::PARAM_INT);
+            $cmd->bindParam(":iid",$intention_id,PDO::PARAM_INT);
+            $cmd->execute();
+
+
+        }else{
+            $count = $counter->getAttribute('activity_count');
+            $counter->setAttribute('activity_count',$count +1);
+        }
+
+        $counter->save();
+        echo $counter->activity_count;
     }
 
 	/**
