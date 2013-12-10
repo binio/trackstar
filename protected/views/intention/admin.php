@@ -55,7 +55,6 @@ $('.search-form form').submit(function(){
             'value'=>'TbHtml::link($data->name,"#",array("onClick"=>"showInt($data->id)"))',
             'type'=>'raw',
         ),
-        'name',
         'briefDescription',
         array(
         'name' =>'created_at',

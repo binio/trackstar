@@ -73,7 +73,6 @@
 
 
 </body>
+    <?php $this->widget('ext.widgets.googleAnalytics.EGoogleAnalyticsWidget',
+        array('account'=>'UA-46336966-1','domainName'=>'.example.com', 'searchSystems'=>array()));?>
 </html>
-
-'CREATE TABLE `Counter` (\n  `user_id` int(11) NOT NULL,\n  `intention_id` int(11) NOT NULL,\n  `activity_count` int(11) NOT NULL DEFAULT \'0\',\n  PRIMARY KEY (`user_id`,`intention_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=latin1'
-
