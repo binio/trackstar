@@ -4,6 +4,12 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
+<div class="row">
+    <div class="span4">You may change the content of this page by modifying the following two filesYou may change the content of this page by modifying the following two filesYou may change the content of this page by modifying the following two files</div>
+    <div class="span4">You may change the content of this page by modifying the following two filesYou may change the content of this page by modifying the following two filesYou may change the content of this page by modifying the following two files</div>
+    <div class="span4">You may change the content of this page by modifying the following two filesYou may change the content of this page by modifying the following two filesYou may change the content of this page by modifying the following two files</div>
+</div>
+
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
 <p>Congratulations! You have successfully created your Yii application.</p>

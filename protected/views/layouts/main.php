@@ -15,7 +15,7 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-
+    <?php echo Yii::app()->bootstrap->registerCoreCss(); ?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
