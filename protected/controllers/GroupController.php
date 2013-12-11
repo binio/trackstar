@@ -299,4 +299,10 @@ class GroupController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+    public function init()
+    {
+            parent::init();
+            Yii::app()->language = 'pl';//Yii::app()->params['languages']['en_us'];
+    }
 }
