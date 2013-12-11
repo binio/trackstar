@@ -55,6 +55,8 @@ class MessageModule extends CWebModule
 		} else if (parent::beforeControllerAction($controller, $action)) {
 			// this method is called before any module controller action is performed
 			// you may place customized code here
+            parent::init();
+            Yii::app()->language = 'pl';//Yii::app()->params['languages']['en_us'];
 			return true;
 		} else {
 			return false;

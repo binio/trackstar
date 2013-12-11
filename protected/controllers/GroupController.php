@@ -303,6 +303,6 @@ class GroupController extends Controller
     public function init()
     {
             parent::init();
-            Yii::app()->language = 'pl';//Yii::app()->params['languages']['en_us'];
+            Yii::app()->language = Yii::app()->params['languages']['pl'];
     }
 }
