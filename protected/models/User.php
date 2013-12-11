@@ -133,4 +133,16 @@ class User extends CActiveRecord
        return md5($val);
         //return $val;
     }
+
+    // class User
+    public function getFullName() {
+        return $this->username;
+    }
+
+    public function getSuggest($q) {
+        $c = new CDbCriteria();
+        $c->addSearchCondition('username', $q, true, 'OR');
+        $c->addSearchCondition('email', $q, true, 'OR');
+        return $this->findAll($c);
+    }
 }

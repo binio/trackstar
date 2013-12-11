@@ -33,6 +33,13 @@ return array(
             //'generatorPaths' => array('bootstrap.gii'),
         ),
 
+        'message' => array(
+            //'class'=>'application.modules.MessageModule',
+            'userModel' => 'User',
+            'getNameMethod' => 'getFullName',
+            'getSuggestMethod' => 'getSuggest',
+        ),
+
     ),
 
 

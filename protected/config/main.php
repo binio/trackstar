@@ -25,6 +25,7 @@ return array(
 
 	// autoloading model and component classes
 	'import'=>array(
+        'application.modules.*',
 		'application.models.*',
 		'application.components.*',
         'bootstrap.helpers.TbHtml',
@@ -41,6 +42,24 @@ return array(
 			'ipFilters'=>array('127.0.0.1','::1'),
             'generatorPaths' => array('bootstrap.gii'),
 		),
+
+        'message' => array(
+            'class'=>'application.modules.MessageModule',
+            'userModel' => 'User',
+            'getNameMethod' => 'getFullName',
+            'getSuggestMethod' => 'getSuggest',
+        ),
+        'mrthello'=>array(
+            'class'=>'application.modules.MrthelloModule',
+        ),
+
+        'forum'=>array(
+            'class'=>'application.modules.bbii.BbiiModule',
+            'adminId'=>1,
+            'userClass'=>'User',
+            'userIdColumn'=>'id',
+            'userNameColumn'=>'username',
+        ),
 
 	),
 

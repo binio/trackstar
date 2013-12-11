@@ -31,7 +31,11 @@
 <!-- header -->
 
 
-    <?php $this->widget('bootstrap.widgets.TbNavbar', array(
+    <?php
+
+    //$message = $this->getModule()->mrthello;
+
+        $this->widget('bootstrap.widgets.TbNavbar', array(
         'brandLabel' => '',
         'display' => null, // default is static to top
         'items' => array(
@@ -45,7 +49,13 @@
                     array('label'=>Yii::t('app','model.topmenu.login'), 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                     array('label'=>Yii::t('app','model.topmenu.group'), 'url'=>array('/group/admin'),'visible'=>!Yii::app()->user->isGuest),
                     array('label'=>Yii::t('app','model.topmenu.intention'), 'url'=>array('/intention/admin'),'visible'=>!Yii::app()->user->isGuest ),
-                    array('label'=>Yii::t('app','model.topmenu.logout').'('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                    array('label'=>Yii::t('app','model.topmenu.logout').'('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                    array(
+                        'url' => Yii::app()->getModule('message')->inboxUrl,
+                        'label' => 'Messages' .
+                            (Yii::app()->getModule('message')->getCountUnreadedMessages(Yii::app()->user->getId()) ?
+                                ' (' . Yii::app()->getModule('message')->getCountUnreadedMessages(Yii::app()->user->getId()) . ')' : ''),
+                        'visible' => !Yii::app()->user->isGuest),
                 ),
             ),
         ),
