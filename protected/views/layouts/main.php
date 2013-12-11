@@ -25,7 +25,7 @@
     <?php $this->widget('bootstrap.widgets.TbHeroUnit', array(
         'htmlOptions'=>array('style'=>"background-image:url('http://www.australia.com/contentimages/about-australias-landscapes-coastal-australian-beaches.jpg')"),
         'heading' => CHtml::encode(Yii::app()->name),
-        'content' => '<p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>',
+        'content' => '<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>',
     )); ?>
 
 <!-- header -->
