@@ -28,18 +28,21 @@ class Yiitube extends CWidget {
 	 */
 	private $_height = array(
 						'youtube'=>array(
+                            'vsmall' => 270,
 							'small' => 349,
 							'normal' => 390,
 							'big' => 510,
 							'huge' => 750,
 						),
 						'megavideo'=>array(
+                            'vsmall' => 270,
 							'small' => 330,
 							'normal' => 344,
 							'big' => 430,
 							'huge' => 551,
 						),
 						'vimeo'=>array(
+                            'vsmall' => 270,
 							'small' => 225,
 							'normal' => 360,
 							'big' => 450,
@@ -57,18 +60,21 @@ class Yiitube extends CWidget {
 	 */
 	private $_width = array(
 						'youtube'=>array(
+                            'vsmall' => 290,
 							'small' => 560,
 							'normal' => 640,
 							'big' => 853,
 							'huge' => 1280,
 						),
 						'megavideo'=>array(
+                            'vsmall' => 290,
 							'small' => 450,
 							'normal' => 640,
 							'big' => 800,
 							'huge' => 1024,
 						),
 						'vimeo'=>array(
+                            'vsmall' => 290,
 							'small' => 400,
 							'normal' => 640,
 							'big' => 800,
@@ -194,7 +200,7 @@ MEGAVIDEO;
 	protected function vimeoCode()
 	{
 		return <<<VIMEO
-		<iframe src="http://player.vimeo.com/video/21339058?byline=0&amp;portrait=0" width="{$this->_width[self::VIMEO][$this->size]}" height="{$this->_height[self::VIMEO][$this->size]}" frameborder="0"></iframe>
+		<iframe src="http://player.vimeo.com/video/{$this->v}?byline=0&amp;portrait=0" width="{$this->_width[self::VIMEO][$this->size]}" height="{$this->_height[self::VIMEO][$this->size]}" frameborder="0"></iframe>
 VIMEO;
 	}
 	
