@@ -49,17 +49,6 @@ return array(
             'getNameMethod' => 'getFullName',
             'getSuggestMethod' => 'getSuggest',
         ),
-        'mrthello'=>array(
-            'class'=>'application.modules.MrthelloModule',
-        ),
-
-        'forum'=>array(
-            'class'=>'application.modules.bbii.BbiiModule',
-            'adminId'=>1,
-            'userClass'=>'User',
-            'userIdColumn'=>'id',
-            'userNameColumn'=>'username',
-        ),
 
 	),
 
@@ -141,7 +130,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'tbiniecki@gmail.com',
         'languages'=>array('en_us'=>'en', 'pl'=>'pl',),
 	),
         //'behaviors'=>array('mrt'=>array('class'=>'ext.behaviors.MrtBehavior')),
