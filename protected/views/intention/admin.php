@@ -118,7 +118,7 @@ $('.search-form form').submit(function(){
             'name'=>'id',
             'header'=>'UP',
             'type'=>'raw',
-            'value'=>'CHtml::link("link hello", "", array("class" => "hello", "id"=>"link_$data->id","onClick"=>CHtml::ajax(array("type"=>"post","data"=>"name=$data->id", "url"=>"http://mariajesus.net/index.php/intention/countchange","update"=>"#link_$data->id",))))'
+            'value'=>'CHtml::link("link hello", "", array("class" => "hello", "id"=>"link_$data->id","onClick"=>CHtml::ajax(array("type"=>"post","data"=>"name=$data->id", "url"=>Yii::app()->getBaseUrl(true)."/index.php/intention/countchange","update"=>"#link_$data->id",))))'
             //'value' => 'CHtml::tag("div",array("id"=>"line_$data->id"))',
         ),
         array(
