@@ -44,7 +44,7 @@ return array(
 		),
 
         'message' => array(
-            'class'=>'application.modules.MessageModule',
+            //'class'=>'application.modules.MessageModule',
             'userModel' => 'User',
             'getNameMethod' => 'getFullName',
             'getSuggestMethod' => 'getSuggest',
