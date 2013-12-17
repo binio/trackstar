@@ -16,15 +16,15 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Intention #<?php echo $model->id; ?></h1>
+<h1><?php echo $model->name; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id',
+		//'id',
 		'name',
 		'description',
 		'created_at',
-		'created_by',
+		//'created_by',
 	),
 )); ?>

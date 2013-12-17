@@ -93,6 +93,7 @@ $('.search-form form').submit(function(){
 //        ),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
+            'template'=>'{update}',
 		),
 	),
 )); ?>
@@ -111,12 +112,16 @@ $('.search-form form').submit(function(){
     'dataProvider'=> $getPI,
     'ajaxUpdate'=>true,
     'columns'=>array(
-        'name',
+        array(
+            'name'=>'name',
+            'value'=>'TbHtml::link($data->name,"#",array("onClick"=>"showInt($data->id)"))',
+            'type'=>'raw',
+        ),
         'briefDescription',
 
         array(
             'name'=>'id',
-            'header'=>'UP',
+            'header'=>'Licznik',
             'type'=>'raw',
             'value'=>'CHtml::link("link hello", "", array("class" => "hello", "id"=>"link_$data->id","onClick"=>CHtml::ajax(array("type"=>"post","data"=>"name=$data->id", "url"=>Yii::app()->getBaseUrl(true)."/index.php/intention/countchange","update"=>"#link_$data->id",))))'
             //'value' => 'CHtml::tag("div",array("id"=>"line_$data->id"))',
@@ -130,7 +135,7 @@ $('.search-form form').submit(function(){
         ),
     ),
 ));
-echo CHtml::textArea('ctrylist', '');
+
 ?>
 
 
@@ -145,6 +150,7 @@ echo CHtml::textArea('ctrylist', '');
         console.log('hello');
 
     function showInt(id){
+        $("#pray").html('Pomodle się');
         $.ajax({
             url:"<?php echo $this->createUrl('data',array('id'=>'')) ?>"+id,
             dataType:'json',
