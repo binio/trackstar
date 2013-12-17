@@ -74,6 +74,7 @@ class Intention extends CActiveRecord
 			'description' => Yii::t('app','model.intention.description'),
 			'created_at' => Yii::t('app','model.intention.created_at'),
 			'created_by' => 'Created By',
+            'briefDescription'=>Yii::t('app','model.intention.description'),
 		);
 	}
 
@@ -187,11 +188,17 @@ class Intention extends CActiveRecord
 //            ))->findAll();
     }
 
+    /*
+     * Gets description limited to number of characters
+     */
     public function getBriefDescription()
     {
         return substr($this->description,0,40).'...';
     }
 
+    /*
+     * Automates timestamp for records
+     */
     public function beforeSave() {
         if ($this->isNewRecord){
             $this->created_at = new CDbExpression('NOW()');
