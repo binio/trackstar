@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="language" content="en" />
+	<meta name="language" content="pl" />
 
 	<!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
@@ -12,6 +12,8 @@
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
@@ -24,8 +26,8 @@
 
     <?php $this->widget('bootstrap.widgets.TbHeroUnit', array(
         'htmlOptions'=>array('style'=>"background-image:url('http://www.australia.com/contentimages/about-australias-landscapes-coastal-australian-beaches.jpg')"),
-        'heading' => CHtml::encode(Yii::app()->name),
-        'content' => '<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>',
+        'heading' => '<p class="head-font">'.CHtml::encode(Yii::app()->name).'</p>',
+        'content' => '<p class="head-quote">Modlić się znaczy dać trochę swojego czasu Chrystusowi, zawierzyć Mu,<br/> pozostawać w milczącym słuchaniu Jego Słowa, pozwalać mu odbić się echem w sercu.</p>',
     )); ?>
 
 <!-- header -->
