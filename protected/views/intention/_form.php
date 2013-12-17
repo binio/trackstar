@@ -9,6 +9,7 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'intention-form',
 	'enableAjaxValidation'=>false,
+    'htmlOptions'=>array('accept-charset'=>'UTF-8'),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
