@@ -227,3 +227,21 @@ div.search-form
 {
 	background: #80CFFF;
 }
+
+.head-font
+{
+    color: #ffffff;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-shadow: 2px 2px #0064cd;
+}
+
+.head-quote
+{
+    color: #ffffff;
+    width: 50%;
+    font-size: 1.0em;
+    font-weight: bold;
+    text-shadow: 1px 1px #0064cd;
+    padding: 8px;
+    background: #5bc0de;
+}
