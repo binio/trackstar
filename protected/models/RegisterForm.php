@@ -34,6 +34,7 @@ class RegisterForm extends CFormModel
             array('username','unique', 'className' => 'User'),
             array('email','unique','className' => 'User'),
             array('email', 'length', 'max'=>256),
+            array('email','email'),
         );
     }
 }
