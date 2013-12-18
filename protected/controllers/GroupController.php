@@ -208,64 +208,12 @@ class GroupController extends Controller
 	 */
 	public function actionAdmin()
 	{
-//        $qb = new CDbCriteria();
-//        $qb->select()
-        $model = new Group('search');
-        $model->unsetAttributes();
 
-        $groupID ='';
-        $userEmail='';
+        $model = new Group();
 
         $dataProvider_dao = $model->getRecentGroups('2013-05-15 00:00:00');
+        $dataProvider = $model->getUserGroup();
 
-
-//        $dataProvider_dao=new CArrayDataProvider($dataDAO->queryAll(), array(
-//            'id'=>'group',
-//            'sort'=>array(
-//                'attributes'=>array(
-//                    'id', 'username', 'email','create_time','groupID'
-//                ),
-//            ),
-//            'pagination'=>array(
-//                'pageSize'=>10,
-//            ),
-//        ));
-
-//echo json_encode($dataProvider_dao);Yii::app()->end();
-
-
-        $sort = new CSort();
-        $sort->attributes = array(
-            'name' => array('asc' => 'name.DESC', 'asc' => 'name'),
-            'created',
-            'description',
-            'users',
-        );
-        $sort->defaultOrder = array('name' => true);
-
-
-
-        $dataProvider=new CActiveDataProvider('Group',
-            array(
-                'criteria' => array(
-                    'condition' => '2=2',
-                    'with'=> array( 'users' => array('joinType' => 'LEFT JOIN'),'author'),
-
-
-                ),
-                'sort' => $sort,
-                'pagination' => array(
-                    'pageSize' => 5,
-                ),
-            )
-        );
-
-		$model=new Group('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Group']))
-			$model->attributes=$_GET['Group'];
-
-        //CVarDumper::dump($dataProvider_dao,10,true);
 		$this->render('admin',array(
 			'model'=>$model,
             'dataProvider' => $dataProvider,'dataProvider_dao'=>$dataProvider_dao
