@@ -80,7 +80,7 @@ return array(
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => 'thomas1551',
-            'charset' => 'utf8',
+            //'charset' => 'utf8',
             'enableProfiling' => true,
             'enableParamLogging' => true,
         ),

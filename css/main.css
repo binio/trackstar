@@ -245,3 +245,7 @@ div.search-form
     padding: 8px;
     background: #5bc0de;
 }
+.hero-unit
+{
+    margin-bottom: 0px;
+}

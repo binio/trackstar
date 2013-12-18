@@ -39,6 +39,7 @@
 
         $this->widget('bootstrap.widgets.TbNavbar', array(
         'brandLabel' => '',
+        'color'=>'inverse',
         'display' => null, // default is static to top
         'items' => array(
             array(

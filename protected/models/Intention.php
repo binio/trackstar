@@ -75,6 +75,7 @@ class Intention extends CActiveRecord
 			'created_at' => Yii::t('app','model.intention.created_at'),
 			'created_by' => 'Created By',
             'briefDescription'=>Yii::t('app','model.intention.description'),
+            'userName'=>Yii::t('app','model.intention.userName'),
 		);
 	}
 
@@ -151,6 +152,7 @@ class Intention extends CActiveRecord
 
     /*
      * relative AR without related models
+     * gets Intentions for which user prays
      */
     public function getPI($userId)
     {
@@ -170,22 +172,26 @@ class Intention extends CActiveRecord
                 ),
                 'sort' => $sort,
                 'pagination' => array(
-                    'pageSize' => 3,
+                    'pageSize' => 4,
                 ),
             )
         );
 
+    }
 
+    public function getPiCount()
+    {
+        $intention_id = $this->id;
+        $user_id = Yii::app()->user->id;
+        $counter = Counter::model()->find('user_id=:userId AND intention_id=:intentionId',array(':userId'=>$user_id,':intentionId'=>$intention_id));
 
+        return $counter->activity_count;
+    }
 
-//        return $records = Intention::model()->with(
-//            array('users'=>array(
-//                'select'=>false,
-//                'joinType'=>'INNER JOIN',
-//                'condition'=>'users.id='.$userId,
-//            ),
-//
-//            ))->findAll();
+    public function getUserName()
+    {
+        $model = User::model()->findByPk($this->created_by);
+        return $model->username;
     }
 
     /*

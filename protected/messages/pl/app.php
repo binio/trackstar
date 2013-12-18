@@ -11,6 +11,7 @@ return array(
     'model.user.login'=>'Zaloguj',
     'model.intention.created_at'=>'Dodany dnia',
     'model.intention.description'=>'Opis',
+    'model.intention.userName'=>'Dodana przez',
     'model.intention.name'=>'Intencja',
     'model.intention.recent'=>'Ostatnio dodane',
     'model.intention.my'=>'Moje intencje',

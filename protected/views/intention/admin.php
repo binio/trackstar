@@ -38,7 +38,7 @@ $('.search-form form').submit(function(){
     'remote' => 'http://www.wp.pl',
     //'options' => '',
     'footer' => array(
-        TbHtml::button('Pomodle sie',array('color' => TbHtml::BUTTON_COLOR_SUCCESS, 'type'=>TbHtml::BUTTON_TYPE_AJAXBUTTON,  'id'=>'pray')),
+        TbHtml::button('Pomodle sie',array('color' => TbHtml::BUTTON_COLOR_SUCCESS, 'type'=>TbHtml::BUTTON_TYPE_HTML,  'id'=>'pray')),
         TbHtml::button('Zamknij', array('data-dismiss' => 'modal')),
     ),
 )); ?>
@@ -55,6 +55,7 @@ $('.search-form form').submit(function(){
             'value'=>'TbHtml::link($data->name,"#",array("onClick"=>"showInt($data->id)"))',
             'type'=>'raw',
         ),
+        'userName',
         'briefDescription',
         array(
         'name' =>'created_at',
@@ -117,22 +118,23 @@ $('.search-form form').submit(function(){
             'value'=>'TbHtml::link($data->name,"#",array("onClick"=>"showInt($data->id)"))',
             'type'=>'raw',
         ),
+        'userName',
         'briefDescription',
 
         array(
             'name'=>'id',
             'header'=>'Licznik',
             'type'=>'raw',
-            'value'=>'CHtml::link("link hello", "", array("class" => "hello", "id"=>"link_$data->id","onClick"=>CHtml::ajax(array("type"=>"post","data"=>"name=$data->id", "url"=>Yii::app()->getBaseUrl(true)."/index.php/intention/countchange","update"=>"#link_$data->id",))))'
+            'value'=>'CHtml::link("Odmowionas "+$data->piCount+" razy", "", array("class" => "hello", "id"=>"link_$data->id","onClick"=>CHtml::ajax(array("type"=>"post","data"=>"name=$data->id", "url"=>Yii::app()->getBaseUrl(true)."/index.php/intention/countchange","update"=>"#link_$data->id",))))'
             //'value' => 'CHtml::tag("div",array("id"=>"line_$data->id"))',
         ),
-        array(
-            'name'=>'id',
-            'header'=>'Count',
-            'type'=>'raw',
-            //'value'=>'CHtml::link("link hello", "", array("class" => "hello", "onClick"=>CHtml::ajax(array("type"=>"post","data"=>"name=$data->id", "url"=>"/trackstar/index.php/intention/hello","update"=>"#line_$data->id",))))'
-            'value' => 'CHtml::tag("div",array("id"=>"line_$data->id", "value"=>"abc"),"10")',
-        ),
+//        array(
+//            'name'=>'id',
+//            'header'=>'Count',
+//            'type'=>'raw',
+//            //'value'=>'CHtml::link("link hello", "", array("class" => "hello", "onClick"=>CHtml::ajax(array("type"=>"post","data"=>"name=$data->id", "url"=>"/trackstar/index.php/intention/hello","update"=>"#line_$data->id",))))'
+//            'value' => 'CHtml::tag("div",array("id"=>"line_$data->id", "value"=>"abc"),"10")',
+//        ),
     ),
 ));
 
@@ -147,7 +149,7 @@ $('.search-form form').submit(function(){
     $(document).ready(function(){
         jQuery('#myModal').modal({'backdrop':true,'keyboard':true,'show':false});
     });
-        console.log('hello');
+        //console.log('hello');
 
     function showInt(id){
         $("#pray").html('Pomodle się');
@@ -158,22 +160,29 @@ $('.search-form form').submit(function(){
             success:function(data){
                 $("#myModal h3").html(data.name);
                 $("#myModal .modal-body p").html(data.description);
+                //console.log('IN showInt Intention id '+id);
                 $("#pray").click(function(){pray(data.id)});
                }
         });
         jQuery('#myModal').modal({'backdrop':true,'keyboard':true,'show':true});
-    }
+    };
 
     function pray(id){
+        //console.log('Intention id '+id);
         $.ajax({
             url:"<?php echo $this->createUrl('pray',array('id'=>'')) ?>"+id,
             dataType:'json',
             cache:'false',
+            type: 'POST',
+
             success:function(data){
-                $("#pray").html('OK');
+                //console.log('Intention data xxx');
+                $("#pray").html(data.text);
+                $("#link_"+id).html(data.counter);
+                $("#pray").off('click');
             }
         });
-    }
+    };
 
 
 </script>

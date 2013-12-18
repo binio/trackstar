@@ -6165,3 +6165,8 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
+
+.hero-unit
+{
+    margin-bottom:0px;
+}

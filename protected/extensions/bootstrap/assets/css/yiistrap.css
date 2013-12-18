@@ -107,3 +107,7 @@ span.required {
   color: #b94a48;
   font-weight: bold;
 }
+.hero-unit
+{
+    margin-bottom:0px;
+}

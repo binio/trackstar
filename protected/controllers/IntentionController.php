@@ -147,6 +147,7 @@ class IntentionController extends Controller
         echo $counter->activity_count;
     }
 
+
 	/**
 	 * Manages all models.
 	 */
@@ -183,6 +184,9 @@ class IntentionController extends Controller
 		));
 	}
 
+    /*
+     * Get intention and return as JSON
+     */
     public function actionData($id)
     {
         $criteria = new CDbCriteria();
@@ -222,8 +226,11 @@ class IntentionController extends Controller
         }
 
         $counter->save();
-        echo $counter->activity_count;
+        $arr = array('text'=>'Odmówiona '.$counter->activity_count.' razy','counter'=>$counter->activity_count);
+        echo CJSON::encode($arr);
     }
+
+
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
