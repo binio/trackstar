@@ -26,58 +26,21 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Groups</h1>
+<h1><?php echo Yii::t('app','model.group.groups'); ?></h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-
-
-<?php $this->widget('bootstrap.widgets.TbModal', array(
-    'id' => 'myModal',
-    'header' => 'Modal Heading',
-    'content' => '<p>One fine body...</p>',
-    'remote' => 'http://www.wp.pl',
-    //'options' => '',
-    'footer' => array(
-        TbHtml::button('Save Changes', array('data-dismiss' => 'modal', 'color' => TbHtml::BUTTON_COLOR_PRIMARY)),
-        TbHtml::button('Close', array('data-dismiss' => 'modal')),
-    ),
-)); ?>
-
-<?php echo TbHtml::button('Click me to open modal', array(
-    'style' => TbHtml::BUTTON_COLOR_PRIMARY,
-    'size' => TbHtml::BUTTON_SIZE_LARGE,
-    'data-toggle' => 'modal',
-    'data-target' => '#myModal',
-)); ?>
-
-
-<?php $this->widget('bootstrap.widgets.TbNav', array(
-    'type' => TbHtml::NAV_TYPE_TABS,
-    'items' => array(
-        array('label' => 'Home', 'url' => '#', 'active' => true),
-        array('label' => 'Profile', 'url' => '#',),
-        array('label' => 'Messages', 'url' => '#',),
-    ),
-)); ?>
-
+<h4><?php echo Yii::t('app','model.group.recent') ?></h4>
 <?php
-$this->widget('bootstrap.widgets.TbGridView', array(
-    'id'=>'group-grid_dao',
-    'dataProvider'=>$dataProvider_dao,
-    'columns' =>array(
-        'email',
-        array('name' => 'id','header' => 'Group&nbsp;&nbsp;&nbsp;'),
-        array('name' =>'username', 'header' => 'User'),
-        array('name'=>'create_time','header'=>'Group created',),
-        'name','description',
-        'groupID',
-    ),
+    $this->widget('bootstrap.widgets.TbGridView', array(
+        'dataProvider'=>$dataProvider_dao,
+        'columns' =>array(
+            'name',
+            'creator',
+            'briefDescription',
+            'created',
+        ),
 
-)); ?>
+    ));
+?>
 
 <?php
 

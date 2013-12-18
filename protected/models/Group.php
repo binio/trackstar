@@ -70,11 +70,46 @@ class Group extends CActiveRecord
 	{
 		return array(
 			'groupID' => 'Group',
-			'name' => 'Name',
-			'description' => 'Description',
-			'created' => 'Created',
+			'name' => Yii::t('app','model.group.name'),
+			'briefDescription' => Yii::t('app','model.group.description'),
+			'created' => Yii::t('app','model.group.created_at'),
+            'creator' => Yii::t('app','model.group.userName'),
 		);
 	}
+
+    public function getRecentGroups($recent){
+
+        $sort = new CSort();
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'created>:created_at AND user_id !=:user_id';
+        $criteria->params = array(':created_at'=>$recent, ':user_id'=>Yii::app()->user->id);
+        $criteria->order = 'created DESC';
+
+        return new CActiveDataProvider('Group',
+            array(
+            'criteria'=>$criteria,
+            'sort' => $sort,
+
+                'pagination' => array(
+                'pageSize' => 10,
+                ),
+            )
+        );
+    }
+
+    public function getCreator()
+    {
+        $model = User::model()->findByPk($this->user_id);
+        return $model->username;
+    }
+
+    /*
+     * Gets description limited to number of characters
+     */
+    public function getBriefDescription()
+    {
+        return substr($this->description,0,40).'...';
+    }
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

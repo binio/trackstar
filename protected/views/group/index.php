@@ -12,14 +12,11 @@ $this->menu=array(
 );
 ?>
 
-<h1>Groups</h1>
+<h1><?php echo Yii::t('app','model.group.groups'); ?></h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
     'ajaxUpdate' => false,
 	'itemView'=>'_view',
-//    'columns' => array(
-//        'header' => 'Name MrT',
-//        'name' => 'Name',
-//    ),
+
 )); ?>

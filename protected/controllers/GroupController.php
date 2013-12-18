@@ -210,31 +210,29 @@ class GroupController extends Controller
 	{
 //        $qb = new CDbCriteria();
 //        $qb->select()
+        $model = new Group('search');
+        $model->unsetAttributes();
+
         $groupID ='';
         $userEmail='';
 
-        $dataDAO =  Yii::app()->db->createCommand('SELECT * FROM Groups g left join groups_users gs on (g.groupID=gs.group_id) join user u on (u.id=gs.user_id) WHERE 5=5');
-        $reader = $dataDAO->query();
-        $reader->bindColumn(1,$groupID);
-        $reader->bindColumn(8,$userEmail);
+        $dataProvider_dao = $model->getRecentGroups('2013-05-15 00:00:00');
 
 
-        $dataProvider_dao=new CArrayDataProvider($dataDAO->queryAll(), array(
-            'id'=>'group',
-            'sort'=>array(
-                'attributes'=>array(
-                    'id', 'username', 'email','create_time','groupID'
-                ),
-            ),
-            'pagination'=>array(
-                'pageSize'=>10,
-            ),
-        ));
+//        $dataProvider_dao=new CArrayDataProvider($dataDAO->queryAll(), array(
+//            'id'=>'group',
+//            'sort'=>array(
+//                'attributes'=>array(
+//                    'id', 'username', 'email','create_time','groupID'
+//                ),
+//            ),
+//            'pagination'=>array(
+//                'pageSize'=>10,
+//            ),
+//        ));
 
 //echo json_encode($dataProvider_dao);Yii::app()->end();
-        foreach($reader as $row){
-            //CVarDumper::dump($userEmail,10,true);
-        }
+
 
         $sort = new CSort();
         $sort->attributes = array(
