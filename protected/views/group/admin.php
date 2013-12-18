@@ -42,41 +42,21 @@ $('.search-form form').submit(function(){
     ));
 ?>
 
+
+<h4><?php echo Yii::t('app','model.group.rmyGroups') ?></h4>
 <?php
 
-    function sayHello($data){
-        $emails = '';
-        foreach($data as $user){
-            $emails.= ', '.$user->email;
-        }
-        return $emails;
-    }
     $this->widget('bootstrap.widgets.TbGridView', array(
-	'id'=>'group-grid',
+	//'id'=>'group-grid',
 	'dataProvider'=>$dataProvider,
     //'attributes' => array('users'),
     'ajaxUpdate' => true,
 	//'filter'=>$model,
 	'columns'=>array(
-		'groupID',
-		'name',
-		'description',
-		'created',
-        array(
-            'header'=>'User email',
-            'name'=>'users.email',
-            'value' => '($data->users == null ? CHtml::encode("NA") : CHtml::encode($data->author->email,3,true))',
-        ),
-        array(
-            'header'=>'Author',
-            'value' => 'CHtml::encode($data->author->email)',
-        ),
-        array(
-            'header'=>'DUMP USERS',
-            'value' => 'sayHello($data->users)',
-        ),
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
-)); ?>
+        array('name'=>'name','header'=>Yii::t('app','model.group.name')),
+        array('name'=>'description','header'=>Yii::t('app','model.group.description')),
+        array('name'=>'created','header'=>Yii::t('app','model.group.created_at')),
+    ),
+));
+
+?>
