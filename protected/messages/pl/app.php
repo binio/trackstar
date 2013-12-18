@@ -1,5 +1,5 @@
 <?php
-//Yii::t('model.RegisterForm.username','TWOJ LOGIN')
+
 return array(
     'model.register.username' =>'Twoj Login',
     'model.register.email' =>'Adres Email',
@@ -24,6 +24,7 @@ return array(
     'model.group.description'=>'Opis',
     'model.group.recent'=>'Ostatnio dodane',
     'model.group.created_at'=>'Dodana dnia',
+    'app','model.group.rmyGroups'=>'Należę do grup:',
     'model.topmenu.intention'=> 'Intencje',
     'model.topmenu.group'=> 'Grupy',
     'model.topmenu.home'=> 'Strona głowna',
