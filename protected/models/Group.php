@@ -97,6 +97,30 @@ class Group extends CActiveRecord
         );
     }
 
+    /*
+     * Gets Groups current user participates in
+     */
+    public function getUserGroup()
+    {
+        $dataDAO =  Yii::app()->db->createCommand('SELECT * FROM Groups g left join groups_users gs on (g.groupID=gs.group_id)
+        WHERE gs.user_id='.Yii::app()->user->id);
+
+        return $dataProvider_dao = new CArrayDataProvider($dataDAO->queryAll(), array(
+                        'keyField'=>'groupID', //nasty trick when key database field is not named 'id'
+                        'id'=>'groupID',
+                        'sort'=>array(
+                                'attributes'=>array(
+                                        'groupID', 'name', 'created'
+                                    ),
+                            ),
+                        'pagination'=>array(
+                                'pageSize'=>10,
+                            ),
+                    ));
+
+
+    }
+
     public function getCreator()
     {
         $model = User::model()->findByPk($this->user_id);
