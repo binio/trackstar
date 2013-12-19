@@ -77,7 +77,7 @@
 
 	<div id="footer">
         <div id="container">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+		Copyright &copy; <?php echo date('Y'); ?> by Tomasz Biniecki (B1N10).<br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
         </div>
