@@ -20,6 +20,7 @@ $this->menu=array(
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
+    //'htmlOptions'=>array('detail-view'),
 	'attributes'=>array(
 		'groupID',
 		'name',
