@@ -29,7 +29,7 @@ class GroupController extends Controller
 		return array(
 
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','index'),
+				'actions'=>array('create','update','admin','index','view'),
 				'users'=>array('@'),
 			),
 //			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -67,6 +67,7 @@ class GroupController extends Controller
 		if(isset($_POST['Group']))
 		{
 			$model->attributes=$_POST['Group'];
+            $model->user_id = Yii::app()->user->id;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->groupID));
 		}

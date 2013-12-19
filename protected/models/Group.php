@@ -155,4 +155,15 @@ class Group extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    /*
+     * Automates timestamp for records
+     */
+    public function beforeSave() {
+        if ($this->isNewRecord){
+            $this->created = new CDbExpression('NOW()');
+        }
+
+        return parent::beforeSave();
+    }
 }
